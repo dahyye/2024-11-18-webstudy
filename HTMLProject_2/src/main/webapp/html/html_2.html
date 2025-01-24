@@ -1,0 +1,106 @@
+<!-- 
+
+	table 태그
+	--------- 제목 / 데이터 출력
+	
+	<table>
+	  |
+	 <tr>
+	  |
+	-----------------
+	|		        |
+	<th>	       <td>
+	table header  table data 
+	 제목				데이터출력
+
+		----------------------------------
+			<tr>  			</tr>
+				<th>번호</th>
+				<th>제목</th>
+				<th>이름</th>
+		----------------------------------
+			<tr>  			</tr>
+				<td>1</td>
+				<td>게시판</td>
+				<td>홍길동</td?
+		----------------------------------
+			<tr>  			</tr>
+				<td>1</td>
+				<td>게시판</td>
+				<td>홍길동</td?
+		----------------------------------
+			<tr>  			</tr>
+				<td>1</td>
+				<td>게시판</td>
+				<td>홍길동</td?
+		----------------------------------
+			<tr>  			</tr>
+				<td>1</td>
+				<td>게시판</td>
+				<td>홍길동</td?
+		----------------------------------
+
+		html은 데이터가 많을 땐 사용하기 어려워
+		
+		=> colspan / rowspan
+		   -------   -------
+		   가로병합	  세로병합
+		=> <thead>
+		   <tbody>
+		   <tfoot>	
+
+
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>Table 태그엽습</h3>
+	<table border="1" width=500 bordercolor=black cellspacing="0" cellpadding="0">
+		<thead>
+		<tr height="30">
+			<th>학번</th>
+			<th>이름</th>
+			<th>국어</th>
+			<th>영어</th>
+			<th>수학</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr height="30">
+				<!-- left / center / right -->
+			<td align="center">1</td>
+			<td align="center">홍길동</td>
+			<td align="right">85</td>
+			<td align="right">89</td>
+			<td align="right">90</td>
+			
+		</tr>
+		<tr height="30">
+				<!-- left / center / right -->
+			<td align="center">2</td>
+			<td>박문수</td>
+			<td>52</td>
+			<td>75</td>
+			<td>98</td>
+			
+		</tr>
+		<tr height="30">
+				<!-- left / center / right -->
+			<td align="center">3</td>
+			<td>심청이</td>
+			<td>78</td>
+			<td>92</td>
+			<td>66</td>
+			
+		</tr>
+		</tbody>
+		
+	</table>
+	
+</body>
+</html>
