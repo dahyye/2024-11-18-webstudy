@@ -15,7 +15,59 @@ import java.util.*;
 
 //tomcat -> 9버전  => javax.servlet.*
 //tomcat -> 10이상 => jakarta.servlet.*
+/*
 
+class ServletClass extends HttpServlet
+{
+	public void init()
+	{
+		초기화 담당 -> 변수에 대한 초기화
+	}
+	public void destory()
+	{
+		화면 변경 / 새로고침 => 메모리회수 => 새로고침할 때마다 창을 다시 띄움
+		=> 장점 : 바로 메모리 해제
+	}
+	----------------------------------
+	사용자 요청에 대한 처리
+	public void doGet()
+	{
+		//사용자 요청 => GET
+		// => 단순한 검색(page, rjator) -> 화면UI
+		//DEFAULT
+		// <a> location.href = " "
+		//sendRedirect()
+	}
+	public void doPost()
+	{
+		//사용자 요청 => POST
+		//처리용 => <form>, ajax, vuejs => 지정이 가능
+	}
+	// GET/POST를 동시에 처리 =>  MVC구조 (get/post) 같은 처리방식
+	public void service()
+	{
+	
+	}
+	-----------------------------------
+	=> _jspInit()-> _jspDestory(), _jspService()
+}
+==========================================================
+
+							servlet/jsp엔진
+브라우저(사용자요청) ==> 웹서버 ==> 웹컨테이터
+	-> 주소창		  html/xml		톰캣
+								 |
+								요청한 JSP/Servlet을 찾아서 컴피일(.class)
+								 |
+								인터프리터를 한줄씩 번역
+								 |
+								메모리에 html저장
+								 | 
+								브라우저에서 읽어서 출력
+
+*/
+
+//서블릿을 찾는 URL주소 => 톰캣이 해당 서블릿을 찾아서 실행
 @WebServlet("/BoardList")
 public class BoardList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -80,9 +132,11 @@ public class BoardList extends HttpServlet {
 		//출력위치
 		for(BoardVO vo : list)
 		{
+			//html에서 화면 이동 방식 ==> 화면만 이동 : <a>  데이터를 전송+화면이동 : <form>
 			out.println("<tr>");
 			out.println("<td width=10% align=center>"+vo.getNo()+"</td>");
-			out.println("<td width=45%>"+vo.getSubject());
+			out.println("<td width=45%><a href=BoardDetail?no="+vo.getNo()+">"+vo.getSubject()+"</a>");
+			//boardDetail한테 no값을 보내겠다 => get방식 -> ?뒤에 보낼 값을 작성
 			out.println("&nbsp;");
 			if(today.equals(vo.getDbday()))
 			{
@@ -90,7 +144,7 @@ public class BoardList extends HttpServlet {
 			}
 			out.println("</td>");
 			out.println("<td width=15% align=center>"+vo.getName()+"</td>");
-			out.println("<td width=20% align=center>"+vo.getRegdate()+"</td>");
+			out.println("<td width=20% align=center>"+vo.getDbday()+"</td>");
 			out.println("<td width=10% align=center>"+vo.getHit()+"</td>");
 			out.println("</tr>");
 		}

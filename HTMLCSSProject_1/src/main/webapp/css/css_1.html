@@ -1,0 +1,134 @@
+<!-- 
+	125page
+	CSS : 화면 디자인
+		=> 사용자, 라이브러리(bootstrap), 
+		------------------------------
+		장점 : 재사용이 가능하다, html제작 후 나중에 적용할 수 있다
+		html/css => 퍼블리셔
+		javascript : front
+		언어 / 데이터베이스 : back
+		
+		<div> <span> : CSS
+		=> 1. CSS = > 어떤 태그에 적용을 하냐
+					  ------- 선택자(selector)
+					  		  ---------------
+					  		  1. css
+					  		  2. javaScript
+					  		  3. jsoup
+					  		  	 select("div.aaa ")
+			2. 선택자의 종류 (126~127page)
+			3. CSS코딩방법
+			   --------- 위치 지정, 테두리, 색상처리, 투명모드
+			  태그{
+			      속성:값;
+			      속성:값;
+			      --- 지정되어 있다
+			   }
+			   
+			  선택자{
+			   
+			   }
+			  
+			  선택
+			  	전체 선택 : * => 기본 사이트 글꼴이 거의 동일
+			  					시스템글꼴도 있지만 구글폰트에서 가져오는 방식도 있음
+			  	태그선택자  : 태그명 {} => h1{속성:값}
+			  	아이디 선택자 : 중복없는 태그 설정
+			  				 <div id="a">
+			  				 div#a{
+			  				 }
+			  	클래스 선택자 : 중복이 있는 태그 설정
+			  				 <div class="a">
+							 div.a{
+							 }	
+				속성 선택자 : 선택자[속성=값] => input[type=submit]
+						  선택자[속성*=값] => input[type=s]
+						  	-> 포함 -> img[src*=jpg|png|gif] 
+						  선택자[속성^=값] => input[type=submit]
+						  	-> 시작 -> http/https
+						  선택자[속성$=값] => input[type=submit]
+						  	-> 끝 -> 확장자
+				
+				후손 선택자
+					선택자 선택자
+						div
+						 |
+					-----------
+					|    |    |
+					h3	span div		div span -> div밑에있는 span전체
+							  |			div>span -> div밑에있는 span한개만 선택
+							------
+							|     |
+							h3	  span
+							 
+				자손 선택자
+					선택자 > 선택자
+					
+				반응 선택자 
+					선택자:hover
+					선택자:active => 메뉴 선택시
+				
+				상태 선택자
+					***선택자:checked => radio / checkbox에서 사용
+					선택지:enabled / disable 
+				
+				동위 선택자
+					선택자+선택자
+					선택자~선택자
+					
+							div
+							 |
+				       -------------------
+				       |	|		|	 |
+				       h1 span(1)span(2)span(3)			h1+span -> span(1)
+														h1~span -> 모든 span
+						<div>
+							<h1></h1>
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+				
+				문자 선택자
+					선택자:after
+					선택자:before
+				
+				구조 선택자
+					선택자:first-child
+					선택자:last-child
+					선택자:ntn-child(수열)
+				
+				
+				
+				
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+img.poster {
+  /* css주석 */
+	width:150px;
+	height:180px;
+}
+img.poster:hover{
+	/* hover 마우승를 가져가면 투명해지는거 -> 주로 a태그에 사용*/
+	opacity: 0.3; 
+	cursor: pointer;
+}
+</style>
+</head>
+<body>
+<!-- 같은게 여러개면 class 다른게 여러개면 id -->
+	<img src="m1.jpg" class="poster">
+	<img src="m2.jpg" class="poster">
+	<img src="m3.jpg" class="poster">
+	<img src="m4.jpg" class="poster">
+	<img src="m5.jpg" class="poster">
+	<img src="m6.jpg" class="poster">
+	<img src="m7.jpg" class="poster">
+	<img src="re_icon.png">
+</body>
+</html>
