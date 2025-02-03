@@ -1,0 +1,71 @@
+<!-- 
+	선택자 기본
+	1) 종류
+	   ---
+	   전체 선택자 : 모든 태그에 적용
+		 		
+		 		*{
+		 			글꼴 / 글자크기 / 색상 => 웹 사이트의 기본(같은 글꼴)
+		 			=> 시스템 / 구글폰트
+		 		}
+ 		태그 선택자 : 선택된 태그에 적용
+ 				   --------- 한정된 태그를 사용한다 (구분이 필요)
+		 		
+		 		태그명 {
+		 			속성 : 값
+		 		}
+	 
+ 		아이디 선택자 : 특정 태그에 대해 적용 (중복이 없는 경우)
+		 		
+		 		<h1 id="aaa">
+		 		<h1 id="aaa">
+		 		<h1 id="aaa">
+		 		#id명 {
+		 			속성 : 값
+		 		}
+		 		
+		 		클래스선택자 : 중복이 가능
+		 		<태그명 class="">
+		 		.class명{
+		 			속성 : 값
+		 		}
+		 		--------------------------
+ 		
+ 		속성 선택자 : 
+ 		
+ 		
+ 		
+ 			***선택자중에 class 선택자는 여러개 사용이 가능하다
+ 			<h1 class="a b c"> -> 클래스 이름이 a or b or c
+ 		
+ 		태그명[속성명=값]
+ 		예) input[type="text"]
+	 		{
+	 			width:200px;
+	 		}
+	 		
+ 			input[type="text"], input[type="password"] 
+	 		{
+	 			width:200px;
+	 		}
+	 		여러개일 때는 ,로 구분
+	 		
+ 		
+ -->
+ 
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#aaa{
+	color: blue;
+}
+
+</style>
+</head>
+<body>
+
+</body>
+</html>
