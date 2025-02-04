@@ -55,12 +55,12 @@ input[type="button"],
 input[type="text"], 
 select, 
 textarea, 
+button,
 input[type="password"] {
     -webkit-border-radius: 12px;
     -moz-border-radius: 12px;
     border-radius: 12px;
     border: 1px #CCC solid;
 }
-
 
 

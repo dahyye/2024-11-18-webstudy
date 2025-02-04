@@ -56,7 +56,7 @@ public class MusicList extends HttpServlet {
 		{
 			out.println("<div class=\"col-md-3\">");
 			out.println("<div class=\"thumbnail\">");
-			out.println("<a href=\"MusicBeforeDetail?fno="+vo.getMno()+"\">");
+			out.println("<a href=\"MusicBeforeDetail?mno="+vo.getMno()+"\">");
 			out.println("<img src="+vo.getPoster()+" style=\"width:180px;height:150px;\">");
 			out.println("<div class=\"caption\">");
 			out.println("<p>"+vo.getTitle()+"</p>");
@@ -95,6 +95,37 @@ public class MusicList extends HttpServlet {
 		
 		out.println("</ul>");
 		out.println("</div>");
+		
+		out.println("<div class=row>");
+		out.println("<h3>최신 방문 맛집</h3>");
+		out.println("<hr>");
+		List<MusicVO> cList=new ArrayList<MusicVO>();
+		Cookie[] cookies=request.getCookies();
+		if(cookies!=null)
+		{
+			//최신순
+			for(int i=cookies.length-1;i>=0;i--)
+			{
+				if(cookies[i].getName().startsWith("music_"))
+				{
+					String mno=cookies[i].getValue();
+					MusicVO vo=dao.musicCookieData(Integer.parseInt(mno));
+					cList.add(vo);
+					
+				}
+			}
+		}
+		for(int i=0;i<cList.size();i++)
+		{
+			MusicVO cvo=cList.get(i);
+			if(i>8) break;
+			out.println("<a href=MusicDetail?mno="+cvo.getMno()+">");
+			out.println("<img src="+cvo.getPoster()+" style=\"width:100px; height:100px\" class=img-rounded title="+cvo.getTitle()+">");
+			out.println("</a>");
+		}
+		out.println("</div>");
+		out.println("</div>");
+		
 		out.println("</body>");
 		out.println("</html>");
 		

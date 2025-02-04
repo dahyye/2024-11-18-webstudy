@@ -1,0 +1,188 @@
+<!-- 
+	1. CSS 적용방법
+		=외부 CSS : 파일읠 제작 -> .CSS
+				=> 모든 파일에 적용, 재사용
+				<link rel="stylesheet" href="파일명|URL">
+		=내부 CSS : 파일 한 개에 대한 처리
+				<style type="text/css">
+				</style>
+		=인라인 CSS : 태그 한개에 대한 처리
+				<태그명 style="">
+				**모든 태그는 id,class,style이 있다
+	
+	2. 선택자(selector)
+		=CSS 적용 / 자바스크립트(태그 제어) / Jsoup 크롤링
+									   -----------
+									   web크롤링 -> 사이트 데이터 수집
+									   
+		<style>
+			선택자 { 
+				속성 : 값;
+				.
+				.
+			}
+		</style 
+
+		$('선택자').이벤트처리
+		$('#btn').click(function(){
+			버튼 클릭
+		})
+		
+		doc.select("선택자")
+		
+		129page
+		= * : 전체 태그에 적용 -> 글꼴 / margin / padding
+		= id : 중복없는 태그를 적용
+		= class : 중복이 있는 태그(여러개 동시에 처리)
+		= 태그 : => 구분자
+
+		
+		135page 속성 선택자
+		= <input> <select> <textarea> <a> <img>
+		  --------------------------------------
+		  id, class를 적용하지 않는다 : 구분이 없다
+		
+		= 태그[속성명=값] equals
+		= 태그[속성명^=값] startsWith -> url주소 
+		= 태그[속성명$=값] endsWith -> 확장서
+		= 태그[속성명*=값] contains -> 이미지태그 (경로를 따져야 할 때)
+		
+		
+		136page 
+		후손 / 자손 선택자
+			HTML은 DOM(Document object Model)
+				  -------------------------- 트리형태로 저장
+			<div>
+				<h1></h1>
+				<p></p>
+				<p>
+				 <h1></h1>
+				</p>
+			</div>
+			
+					
+					div
+					 |
+				-----------
+				|	 |	  |  
+				h1	 p	  p  => 자손	  div > h1
+						  | 
+						  h1 => 후손   div h1
+						
+				=> 형제 선택자(동위 선택자)
+				   옆에 있는 태그 -> h1+p -> 크롤링할 때
+				   인접한 태그 -> h1~p
+					 
+		
+		141page
+		가상 선택자
+			태그:			
+				=> :hover => a, img, tr
+				=> :checked => checkbox, radio
+				    ----------------------------
+					  관리자 / 마이페이지
+				=> :focus => input, button
+				=> 구조 선택자
+					같은 태그가 여러개로 구분이 없는 경우
+					목록 : <ul>, <table>, <dl>
+				
+					li:first-child
+					li:last-child
+					li:ntn-child(수열)
+				
+			태그::
+				=> ::after
+				=> ::before
+					문자선택자 : 새글, 신상품 => 템플릿을 사용
+					
+			**태그선택자는 사용자 정의가 없다(표준화)
+				
+	
+		속성의 종류
+		선택자 {
+			속성 : 값
+			--- 속성명 (사용자 정의가 없다)
+		}
+		
+		=> 텍스트 속성
+			-> 단위 148~154page
+				1. 크기단위 => 글자크기 
+					font-size=> 16px;
+					% => 100% => 16px;
+					  
+				2. 색상
+					= 시스템 색상 color:red
+					= rgb(255,255,255) => 그림판이용
+					= 16진법 -> #FFF(흰색), #000(검정) => HTML 색상표이용 
+				3. URL
+			-> 스타일(글꼴)
+			-> 정렬
+		=> 이미지관련
+		=> 위치
+		=> border
+		=> 목록
+		=> 박스모델
+		=> position
+		=> 기타(레이어, 이동 속성)
+		=> 반응형 웹
+		=> CSS 라이브러리
+			-> BootStrap => 1차 프로젝트 JSP
+			-> TailWind => 2차 프로젝트 Spring
+			
+				
+						
+
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/* 구조 선택자 이용 */
+p:nth-child(1){
+	/* font-size: 16px; */
+	/* font-size: 100% */
+	font-size: 1.0em;
+}
+p:nth-child(2){
+	/* font-size: 24px; */
+	/* font-size: 150% */
+	font-size: 1.5em;
+}
+p:nth-child(3){
+	/*font-size: 32px; */
+	/* font-size: 200% */
+	font-size: 2.0em;
+}
+p:nth-child(4){
+
+}
+ul li:nth-child(1){
+	color:green;
+}
+ul li:nth-child(2){
+	/* color:rgb(50,130,246); */ 
+	/* rgba() => 투명모드*/
+	color:rgba(50,130,246,0.3); /* 투명도는 0~1사이의값 */
+	/* 가급적이면 사이트 제작시 원색은 피한다 */
+}
+ul li:nth-child(3){
+	color:#3282F6;
+}
+</style>
+</head>
+<body>
+ <H1>폰트 크기</H1>
+	<p>Hello CSS1</p>
+	<p>Hello CSS2</p>
+	<p>Hello CSS3</p>
+	<p>Hello CSS4</p>
+ <H1>색상 처리</H1>
+ 	<ul>
+ 		<li>Hello HTML/CSS</li>
+ 		<li>Hello HTML/CSS</li>
+ 		<li>Hello HTML/CSS</li>
+ 	</ul>
+</body>
+</html>
