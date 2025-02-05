@@ -2,45 +2,48 @@ package com.sist.music;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.*;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import jakarta.servlet.http.Cookie;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
-import java.io.*;
-import java.util.*;
 import com.sist.dao.*;
 import com.sist.vo.*;
 
-@WebServlet("/MusicList")
-public class MusicList extends HttpServlet {
+@WebServlet("/MusicTypeFind")
+public class MusicTypeFind extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setContentType("text/html; charset=UTF-8");
+		//2. 브러우저 연결
 		PrintWriter out=response.getWriter();
+		//3. 출력 전 오라클 데이터 읽기
+		
+		String strPage=request.getParameter("page");
+		if(strPage==null)
+			strPage="1";
+		int curpage=Integer.parseInt(strPage);
+		
+		String cno=request.getParameter("cno");
+		if(cno==null)
+			cno="2";
 		
 		MusicDAO dao = MusicDAO.newInstance();
-		
-		String page=request.getParameter("page");
-		if(page==null)
-			page="1";
-		int curpage=Integer.parseInt(page);
-		List<MusicVO> list = dao.musicListData(curpage);
-		
-		int totalpage=dao.Musictotalpage();
+		List<MusicVO> list = dao.musicTypeFind(curpage, Integer.parseInt(cno));
+		int totalpage=dao.foodTypeTotalPage(Integer.parseInt(cno));
 		
 		final int BLOCK=10;
-		
 		int startPage=((curpage-1)/BLOCK*BLOCK)+1;
 		int endPage=((curpage-1)/BLOCK*BLOCK)+BLOCK;
 		if(endPage>totalpage)
-		{
 			endPage=totalpage;
-		}
 		
 		out.println("<html>");
 		out.println("<head>");
@@ -49,8 +52,17 @@ public class MusicList extends HttpServlet {
 		out.println("</head>");
 		out.println("<body>");
 		out.println("<div class=container>");
-		out.println("<div class=row>");
-		
+		out.println("<div class=\"\row text-center\">");
+		out.println("<a href=MusicTypeFind?cno=2 class=\"btn btn-sm btn-danger\">top50</a>");
+		out.println("<a href=MusicTypeFind?cno=1 class=\"btn btn-sm btn-success\">가요</a>");
+		out.println("<a href=MusicTypeFind?cno=3 class=\"btn btn-sm btn-info\">pop</a>");
+		out.println("<a href=MusicTypeFind?cno=4 class=\"btn btn-sm btn-primary\">ost</a>");
+		out.println("<a href=MusicTypeFind?cno=5 class=\"btn btn-sm btn-warning\">트로트</a>");
+		out.println("<a href=MusicTypeFind?cno=6 class=\"btn btn-sm btn-success\">jazz</a>");
+		out.println("<a href=MusicTypeFind?cno=7 class=\"btn btn-sm btn-info\">classic</a>");
+		out.println("</div>");
+		out.println("<div class=row style=\"margin-top:20px\">");
+	
 		for(MusicVO vo : list)
 		{
 			out.println("<div class=\"col-md-3\">");
@@ -71,8 +83,8 @@ public class MusicList extends HttpServlet {
 		
 		if(startPage>1)
 		{
-			out.println("<li><a href=\"MusicList?page="+1+"\">&lt;&lt;</a></li>"); // < 화살표
-			out.println("<li><a href=\"MusicList?page="+(startPage-1)+"\">&lt;</a></li>"); // < 화살표
+			out.println("<li><a href=\"MusicTypeFind?cno="+cno+"&page="+1+"\">&lt;&lt;</a></li>"); // < 화살표
+			out.println("<li><a href=\"MusicTypeFind?cno="+cno+"&page="+(startPage-1)+"\">&lt;</a></li>"); // < 화살표
 			
 		}
 		
@@ -81,53 +93,25 @@ public class MusicList extends HttpServlet {
 			if(i==curpage)
 				out.println("<li class=active><a href=\"MusicList?page="+i+"\">"+i+"</a></li>");
 			else
-				out.println("<li><a href=\"MusicList?page="+i+"\">"+i+"</a></li>");
+				out.println("<li><a href=\"MusicTypeFind?cno="+cno+"&page="+i+"\">"+i+"</a></li>");
 		}
 		
 		if(endPage<totalpage)
 		{
-			out.println("<li><a href=\"MusicList?page="+(endPage+1)+"\">&gt;</a></li>"); // > 화살표
-			out.println("<li><a href=\"MusicList?page="+totalpage+"\">&gt;&gt;</a></li>"); // >> 화살표
+			out.println("<li><a href=\"MusicTypeFind?cno="+cno+"&page="+(endPage+1)+"\">&gt;</a></li>"); // > 화살표
+			out.println("<li><a href=\"MusicTypeFind?cno="+cno+"&page="+totalpage+"\">&gt;&gt;</a></li>"); // >> 화살표
 		}
 
 		
 		
 		out.println("</ul>");
-		out.println("</div>");
 		
-		out.println("<div class=row>");
-		out.println("<h3>최신 방문 맛집</h3>");
-		out.println("<hr>");
-		List<MusicVO> cList=new ArrayList<MusicVO>();
-		Cookie[] cookies=request.getCookies();
-		if(cookies!=null)
-		{
-			//최신순
-			for(int i=cookies.length-1;i>=0;i--)
-			{
-				if(cookies[i].getName().startsWith("music_"))
-				{
-					String mno=cookies[i].getValue();
-					MusicVO vo=dao.musicCookieData(Integer.parseInt(mno));
-					cList.add(vo);
-					
-				}
-			}
-		}
-		for(int i=0;i<cList.size();i++)
-		{
-			MusicVO cvo=cList.get(i);
-			if(i>8) break;
-			out.println("<a href=MusicDetail?mno="+cvo.getMno()+">");
-			out.println("<img src="+cvo.getPoster()+" style=\"width:100px; height:100px\" class=img-rounded title="+"'"+cvo.getTitle()+"'"+">");
-			out.println("</a>");
-		}
+
 		out.println("</div>");
 		out.println("</div>");
 		
 		out.println("</body>");
 		out.println("</html>");
-		
 	}
 
 }

@@ -177,12 +177,126 @@ public class MusicDAO {
 	}	
 	
 	
+	public List<MusicVO> musicTypeFind(int page, int cno)
+	{
+		List<MusicVO> list = new ArrayList<MusicVO>();
+		try {
+			getConnection();
+			String sql="SELECT mno, title, poster, num FROM (SELECT mno,title,poster,rownum as num FROM (SELECT mno,title,poster FROM genie_music WHERE cno="+cno+")) WHERE num BETWEEN ? AND ?";
+			ps=conn.prepareStatement(sql);
+			
+			int rowpage=12;
+			int start=(rowpage*page)-(rowpage-1);
+			int end=rowpage*page;
+			
+			ps.setInt(1, start);
+			ps.setInt(2, end);
+			ResultSet rs= ps.executeQuery();
+			
+			while(rs.next())
+			{
+				MusicVO vo = new MusicVO();
+				vo.setMno(rs.getInt(1));
+				vo.setTitle(rs.getString(2));
+				vo.setPoster(rs.getString(3));
+				list.add(vo);
+				
+			}
+			rs.close();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		finally {
+			disConnection();
+		}
+		return list;
+	}
 	
 	
+	public int foodTypeTotalPage(int cno)
+	{
+		int total=0;
+		try {
+			getConnection();
+			String sql="SELECT CEIL(COUNT(*)/12.0) FROM genie_music WHERE cno="+cno;
+			ps=conn.prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			
+			rs.next();
+			total=rs.getInt(1);
+			rs.close();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			disConnection();
+		}
+		return total;
+	}
+	
+	public List<MusicVO> musicFind(int page, String col, String md)
+	{
+		List<MusicVO> list = new ArrayList<MusicVO>();
+		try {
+			getConnection();
+			String sql="SELECT mno, title, poster, num "
+					+ "FROM (SELECT mno,title,poster, rownum as num "
+					+ "FROM (SELECT mno,title,poster "
+					+ "FROM genie_music WHERE "+col+" LIKE '%'||?||'%')) "
+					+ "WHERE num BETWEEN ? AND ?";
+			ps=conn.prepareStatement(sql);
+			int rowSize=20;
+			int start=(rowSize*page)-(rowSize-1);
+			int end=rowSize*page;
+			
+			ps.setString(1, md);
+			ps.setInt(2, start);
+			ps.setInt(3, end);
+			
+			ResultSet rs = ps.executeQuery();
+			while(rs.next())
+			{
+				MusicVO vo = new MusicVO();
+				vo.setMno(rs.getInt(1));
+				vo.setTitle(rs.getString(2));
+				vo.setPoster(rs.getString(3));
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		finally {
+			disConnection();
+		}
+		
+		return list;
+	}
 	
 	
-	
-	
+	public int musicFindTotalPage(String col, String md)
+	{
+		int total=0;
+		try {
+			getConnection();
+			String sql="SELECT CEIL(COUNT(*)/20.0) FROM genie_music WHERE "+col+" LIKE '%'||?||'%'";
+			ps=conn.prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			total=rs.getInt(1);
+			rs.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		finally {
+			disConnection();
+		}
+		return total;
+	}
 	
 	
 	
