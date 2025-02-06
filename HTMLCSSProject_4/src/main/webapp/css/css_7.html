@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="table.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+let i=0;
+$(function () { //window.onload=function(){}
+	$('.dataTr').click(function(){
+		if(i==0)
+		{
+			i=1;
+			$('#content').show("show");
+		}
+		else
+		{
+			i=0;
+			$('#content').hide("hide");
+		}
+	})
+})
+</script>
+</head>
+<body>
+ <table class="table_content" width=700>
+ 	<tr>
+ 	 <th>번호</th>
+ 	 <th>제목</th>
+ 	 <th>이름</th>
+ 	 <th>작성일</th>
+ 	 <th>조회수</th>
+ 	</tr>
+ 	<tr class="dataTr">
+ 	 <td class="text-center">1</td>
+ 	 <td>[오늘의 급등주] 카카오페이, 연내 흑자전환 전망에 주가 3만 원대 안착</td>
+ 	 <td class="text-center">홍길동</td>
+ 	 <td class="text-center">2025-02-05</td>
+ 	 <td class="text-center">10</td>
+ 	</tr>
+ 	<tr id="content" style="display:none">
+ 	 <td colspan="5" height="200" class="text-left" valign="top">
+ 	 	<pre>
+ 	 	
+ 	 	카카오페이 주가가 2월 5일 오전 11시 21분 기준 12.65% 오른 3만2950원에 거래되고 있다.
+ 	 	티몬·위메프(티메프) 사태에도 불구하고 실적 개선, 자회사 카카오페이증권의 흑자 전환, 
+ 	 	오픈AI와 모회사 카카오의 협력이 주가에 긍정적 영향을 미친 것으로 분석된다.
+ 	 	카카오페이는 전날 매출 7662억 원, 영업손실 575억 원의 2024년 연간 실적(연결 기준)을 공시했다. 
+ 	 	2023년에 이어 2년 연속 영업손실을 기록했으나 카카오페이 측은 “티메프 사태 관련 315억 원의 
+ 	 	일회성 손실 등을 감안하면 
+ 	 	2025년 흑자전환이 추산된다”고 설명했다.</pre>
+ 	 </td>
+ 	</tr>
+ </table>
+</body>
+</html>
