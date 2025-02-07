@@ -1,0 +1,194 @@
+<!--  
+		주요속성
+		184page~193page
+		1. 텍스트 속성
+			font-size : 글자 크기 (px, em(배수), %)
+						-> 기본 16px
+			font-family : 글꼴
+						  시스템 / 구글폰트
+			font-weight : bold => 강조
+			
+			color : 글자 색상
+					= red, gray ...
+					= rgb(255,255,255) => 그림판이용
+					= 16진법 => #FFF => 그림판이나 HTML 색상표 이용
+			 		= rgba() => 투명모드
+			 			0.0 ~ 1.0
+			 <a> => text-decoration:none / underline / overline
+			 		line-through(취소선)
+			 text-align : 정렬(수평) => <table>
+			 			  left / center / right
+			 			  		~~~~~~~ default
+			 			  
+			 vertical-align : 정렬(수직) => <div> <table>
+			 			 top / middle / bottom
+			 				   ~~~~~~~ default
+			 white-space : 줄바꿈 => <pre>
+			 line-height  : 자간(줄 간격)
+			 word-space : 글자 간격	   
+		
+		174~183page	 				
+		2. background 속성
+			background-color : 배경색
+			background-image : 배경 이미지
+				=> backgroung-image:url("경로명"|url주소)
+				=> 크롤링 => style="background-image:url()"
+				=> img(80%) / background(20%)
+			background-repeat : 반복 -> 이미지가 작은 경우
+								no-repeat / repeat(default)
+			background-size : width/height, cover(축소/확대)
+			----------------------------------------------
+				통합 : background
+		3. 박스 모델
+			margin / padding / border / content 
+			= 외부 여백 : 브라우저와 태그의 간격
+						태그와 태그사이의 간격
+						margin
+						------
+						  margin-top
+						  margin-right
+						  margin-bottom
+						  margin-left
+						   ==> 통합: margin: top right bottom left (시계방향)	
+		
+			= 내부 여백 : 태그안에 있는 텍스트 / 이미지의 여백을 줄 때 사용
+					    padding
+					    -------
+					      padding-top
+					      padding-right
+					      padding-bottom
+					      padding-left
+					      	==> 통합: padding: top right bottom left
+			-------------------------------------------------------
+						속기법 : (top/bottom) , (right/left) 
+						padding: 10px -> (10px 10px 10px 10px)
+						padding: 10px 20px -> (10px 20px 10px 20px) 
+						padding: 10px 20px 30px (10px 20px 30px 20px)
+						
+			= 테두리
+				border
+				------
+					border-width : 두께
+					border-color : 색상
+					border-style : 출력형태 -> 선의 종류
+									=> solid, dotted, dashed, double
+					------------------------------------------------
+						통합 : border:1px solid red
+					border-radius : 타원
+					-------------
+						border-radius: 왼쪽상단 오른쪽상단 오른쪽하단 왼쪽하단
+									
+		4. 가시성 속성
+			display 
+			-------
+				태그 => 브라우저 범위를 벗어나면 자동 줄바꿈
+				---
+				block : System.out.println() -> 세로출력
+					=> 태그가 한 줄 전체 차지
+					=> <div> <h1~h6> <p> <br> <hr> <ul> <ol> <dl> <table>
+				inline : System.out.print() -> 가로 출력
+					=> 지정된 크기만큼만 차지
+					=> <img> <a> <input> <select> 
+						<textarea> <span> <b> <i> <strong>
+				1) 감추는 경우
+				   -------- display:none
+				2) 속성변경
+				   ----- display:block
+				   		 display:inline  ==> width height를 지정한 경우에는 inline이 적용불가 => inline-block를 사용
+				   		 display:inline-block => 변경 대상에 width/height를 변경
+				3) 테이블 사용을 하지말라(권장사항)
+				   -----------------
+				   => 웹접근표준 => 만약에 사용 <caption>
+				   => 테이블의 단점 : 자동으로 늘어난다
+				   display:table => <table>
+				   display:table-row => <tr>
+				   display:table-cell => <td>
+				   display:table-column => <th>
+				   display:table-caption => <caption>
+				
+				4) display => javascript
+				   	
+					
+		5. 목록 속성
+		6. 위치 속성
+		7. 기타
+		8. 화면 분할
+		9. 반응형 웹
+		10. CSS 라이브러리 -> BootStrap / TailWind => CSS가 제작
+		
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js""></script>
+<script type="text/javascript">
+/*
+ 	Front-End
+ 		Jquery (3) => 발전사항(x)
+ 		React
+ 		Vue
+ 		TanStack(React-Query)
+ 		** Jquery(4,5) / AngularJS
+ 		javascript => typescript
+ */
+ let bCheck=true;
+ $(function() {
+	 //이벤트 발생시 처리 -> 서버와 연결되는 것은 아니다 => 브라우저 자체에서
+	 $('input[type="button"]').click(function() {
+		 if(bCheck==true)
+		 {
+			$(this).val("취소")
+			$('#write').show(); //display:''
+			bCheck=false;
+		 }
+		 else
+		 {
+			$(this).val("댓글")
+			$('#write').hide(); //display:''	
+			bCheck=true;				 
+		 }
+		
+	})
+	$('b').click(function() {
+		$('b').hide();
+		$('span').show();
+		
+	})
+	
+})
+</script>
+<style type="text/css">
+b:hover{
+	color: green;
+	cursor:pointer;
+}	
+</style>
+</head>
+<body>
+	<h1 ></h1>
+	<table border=1 bordercolor=black width=500>
+	 <tr>
+	 	<td>
+	 	<input type=button value="댓글">
+	 	</td>
+	 </tr>
+	 <tr style="display:none" id="write">
+	 	<td>
+	 	<textarea rows="5" cols="50"></textarea>
+	 	</td>
+	 </tr>
+	</table>
+	<h1>트럼프 2기 최대 우방국 떠오른 폴란드</h1>
+	<pre>
+미국은 지난해 말부터 발트해와 가까운 폴란드 북부 포메라니안주 레지보코 기지에서 이지스
+어쇼어(Aegis Ashore)미사일 방어 시스템을 운용하고 있다.
+이 기지는 러시아와 국경에서 230㎞, 러시아 역외 영토인 칼리닌그라드에선 160㎞ 떨어진 곳에 위치한다.
+이지스 어쇼어는 지상 배치형 요격미사일 시스템으로, 이지스 구축함 방공 기능을 육상으로 옮긴 것이다.
+<b>더보기</b>
+<span style="display:none">미군 유럽사령부 산하 해군 시설인 레지코보 기지에는 AN/SPY-1 레이더, MK41 수직발사기, 
+SM-3 요격미사일 등이 배치됐으며, 중단거리 미사일 요격이 가능하다.</span></pre>
+</body>
+</html>

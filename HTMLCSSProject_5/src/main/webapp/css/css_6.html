@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+body > div{
+	widows: 400px;
+	height: 100px;
+	border: 1px solid black;
+	overflow : scroll; /* div안에서 좌표점을 잡아야 적용 가능(position이 absolute->) */
+}
+.a{
+	width: 100px;
+	height: 100px;
+	/* position: absolute;  절대 좌표 */ 
+	position: relative;
+	
+}
+
+.a:nth-child(1) {
+	background-color: red;
+	left: 10px;
+	top: 10px;
+}
+.a:nth-child(2) {
+	background-color: blue;
+	left: 50px;
+	top: 50px;
+}
+.a:nth-child(3) {
+	background-color: green;
+	left: 90px;
+	top: 90px;
+}
+</style>
+</head>
+<body>
+ <div>
+  <div class="a"></div>
+  <div class="a"></div>
+  <div class="a"></div>
+ </div>
+</body>
+</html>
