@@ -12,7 +12,7 @@ import java.util.StringTokenizer;
 import com.sist.dao.*;
 import com.sist.vo.*;
 
-@WebServlet("/FoodDetail")
+@WebServlet("/FoodDetail2")
 public class FoodDetail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
