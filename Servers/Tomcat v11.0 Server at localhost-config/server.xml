@@ -149,10 +149,8 @@
       		maxWailt=""
       		type=""	
       	/>-->
-      <Context docBase="JSPBasicProject_6" path="/JSPBasicProject_6" reloadable="true" source="org.eclipse.jst.jee.server:JSPBasicProject_6">
-       <Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="10" maxIdle="8" maxWait="-1" name="jdbc/oracle" password="happy" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:XE" username="hr"/>
-      </Context>
-      <Context docBase="JSPFrontProject_1" path="/JSPFrontProject_1" reloadable="true" source="org.eclipse.jst.jee.server:JSPFrontProject_1"/></Host>
+      
+      <Context docBase="JSPMiddleProject_2" path="/JSPMiddleProject_2" reloadable="true" source="org.eclipse.jst.jee.server:JSPMiddleProject_2"/></Host>
     </Engine>
   </Service>
 </Server>
