@@ -14,7 +14,7 @@
     			   => React / Vue / Next => 동적으로 화면 출력
     			   	  ------------------- Java연결
     			   	  
-    			   	  
+    			   	   
     			   	  
     		~VO ===> {} Object => ***JSON
     					자바 스크립트 객체 표현법
@@ -174,7 +174,7 @@
 	
 		
  -->	
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
 <meta charset="UTF-8">
