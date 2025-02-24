@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  PreparedStatement / ResultSet : SQL
+	  mybatis => ORM => 관계형데이터베이스를 연동하는 클래스의 집합
+ -->
+ <!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.sist.dao.board-mapper">
+  <select id="boardListData" resultType="BoardVO" parameterType="hashmap">
+   SELECT no,subject,name,regdate,hit,num
+   FROM (SELECT no,subject,name,regdate,hit,rownum as num
+   FROM (SELECT no,subject,name,regdate,hit
+   FROM board ORDER BY no DESC))
+   WHERE num BETWEEN #{start} AND #{end}
+  </select>
+ 
+  <select id="boardTotalPage" resultType="int">
+  	SELECT CEIL(COUNT(*)/10.0) FROM board
+  	<!-- WHERE 문을 사용할 때 <, >는 오류날 수 있다. &.... 같은 코드를 사용해야해 -->
+  </select>
+  
+  <insert id="boardInsert" parameterType="BoardVO">
+  	<!-- MyBatis의 시퀀스(자동 증가번호) 만들 때 사용 -->
+   <selectKey keyProperty="no" resultType="int" order="BEFORE">
+   	SELECT NVL(MAX(no)+1,1) as no FROM board    
+   </selectKey>
+    INSERT INTO board VALUES(#{no}, #{name},#{subject},#{content},#{pwd}, SYSDATE, 0)
+  </insert>
+ </mapper>
