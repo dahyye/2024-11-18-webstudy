@@ -108,7 +108,7 @@ public class FoodDAO {
    public static List<EmpVO> empListData()
    {
 	   SqlSession session=ssf.openSession();
-	   List<EmpVO> list=session.selectOne("empListData");
+	   List<EmpVO> list=session.selectList("empListData");
 	   session.close();
 	   return list;
    }

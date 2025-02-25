@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
- <mapper namespace="com.sist.mapper.emp-mapper">
+<mapper namespace="com.sist.mapper.emp-mapper">
   <select id="empListData" resultType="com.sist.vo.EmpVO">
-   SELECT empno,ename,job,TO_CHAR(hiredate,'YYYY-MM-DD') as dbday,sal
-   FROM emp
+    SELECT empno,ename,job,TO_CHAR(hiredate,'YYYY-MM-DD') as dbday,sal
+    FROM emp
   </select>
- </mapper>
+</mapper>

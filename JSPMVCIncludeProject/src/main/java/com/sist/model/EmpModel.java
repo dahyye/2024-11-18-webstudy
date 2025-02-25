@@ -27,9 +27,12 @@ public class EmpModel {
 	@RequestMapping("emp/list_js.do")
 	public void emp_list_js(HttpServletRequest request, HttpServletResponse response)
 	{
+		
 		try {
+			
 			response.setContentType("text/plain;charset=UTF-8");
 			PrintWriter out=response.getWriter();
+			
 			List<EmpVO> list = FoodDAO.empListData();
 			JSONArray arr=new JSONArray();
 			for(EmpVO vo:list)
@@ -43,6 +46,7 @@ public class EmpModel {
 				arr.add(obj);
 			}
 			out.write(arr.toJSONString());
+			System.out.println(arr.toJSONString());
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
