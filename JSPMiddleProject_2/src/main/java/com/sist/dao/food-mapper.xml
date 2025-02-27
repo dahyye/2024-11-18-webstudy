@@ -44,7 +44,8 @@
   <sql id="where-fno">
    WHERE fno=#{fno}
   </sql>
-  <select id="foodListData" resultType="FoodVO">
+  
+  <select id="foodListData" resultType="com.sist.vo.FoodVO">
     SELECT fno,name,poster,num
     FROM (SELECT fno,name,poster,rownum as num 
     FROM (SELECT fno,name,poster 
@@ -67,7 +68,7 @@
      <include refid="where-fno"/>
    </update>
    
-   <select id="foodDetailData" resultType="FoodVO" parameterType="int">
+   <select id="foodDetailData" resultType="com.sist.vo.FoodVO" parameterType="int">
     SELECT name,type,phone,address,theme,poster,
 	images,time,parking,content,price,score,hit 
 	FROM food_menupan 
