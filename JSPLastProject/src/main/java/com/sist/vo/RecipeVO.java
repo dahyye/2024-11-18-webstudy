@@ -19,6 +19,6 @@ HIT             NUMBER
 @Data
 public class RecipeVO {
 	private int no, hit, likecount, replycount;
-	private String title, porster, chef;
+	private String title, poster, chef;
 	
 }

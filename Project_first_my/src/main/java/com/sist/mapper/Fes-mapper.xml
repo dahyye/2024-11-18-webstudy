@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.Fes-mapper">
+<select id="fesMainHouseData" resultType="FesVO">
+SELECT * FROM (SELECT * FROM content
+      ORDER BY DBMS_RANDOM.RANDOM
+    )
+    WHERE rownum&lt;=1
+</select>
+
+<select id="fesMainHouseData8" resultType="FesVO">
+    SELECT * FROM (SELECT * FROM content 
+      ORDER BY DBMS_RANDOM.RANDOM
+    )
+    WHERE rownum&lt;=8
+  </select>
+  
+<!--  축제 목록 -->
+<select id="fesListData" resultType="FesVO" parameterType="hashmap">
+
+   SELECT content_id, title, contenttype_id,first_image, addr1, tel, event_startdate, event_enddate,agelimit, num
+	FROM (SELECT content_id, title, contenttype_id,first_image, addr1, tel, event_startdate, event_enddate,agelimit, rownum as num
+	FROM (SELECT content.content_id, title, contenttype_id,first_image, addr1, tel, event_startdate, event_enddate,agelimit 
+	FROM content, event
+	WHERE content.content_id=event.content_id AND content.cat2='A0207'))
+	WHERE num BETWEEN #{start} AND #{end}  
+   
+</select>
+
+<select id="fesTotalPage" resultType="int">
+  SELECT CEIL(COUNT(*)/12.0) 
+  FROM content,event 
+  WHERE content.content_id=event.content_id
+  
+</select>
+
+<!--  축제 상세보기 -->
+<select id="fesDetailData" resultType="FesVO" parameterType="int">
+  SELECT * 
+  FROM content,event,event_detail,detail_image
+  WHERE content.content_id=event.content_id 
+  	AND content.content_id=event_detail.content_id 
+  	AND content.content_id=detail_image.content_id
+  	AND content.cat2='A0207'
+	AND content.content_id=#{content_id}
+
+</select>
+<!-- 축제 히트증가부분 추가예정 -->
+<update id="" parameterType="int">
+  
+  </update>
+</mapper> 

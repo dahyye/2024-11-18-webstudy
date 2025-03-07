@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -16,30 +16,30 @@
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single_catagory wow fadeInUp" data-wow-delay=".3s">
-                        <img src="../img/catagory-img/1.jpg" alt="">
+                        <img src="../img/catagory-img/hotel.jpg" style="width:100%; height:100%" alt="">
                         <div class="catagory-title">
                             <a href="#">
-                                <h5>Food</h5>
-                            </a>
+                                <h5>hotel</h5>
+                            </a> 
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single_catagory wow fadeInUp" data-wow-delay=".6s">
-                        <img src="../img/catagory-img/2.jpg" alt="">
+                        <img src="../img/catagory-img/festival.jpg" style="width:100%; height:100%" alt="">
                         <div class="catagory-title">
                             <a href="#">
-                                <h5>Recipe</h5>
+                                <h5>festival</h5>
                             </a>
                         </div>
-                    </div>
+                    </div> 
                 </div>
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single_catagory wow fadeInUp" data-wow-delay=".9s">
-                        <img src="../img/catagory-img/3.jpg" alt="">
+                        <img src="../img/catagory-img/event.jpg" style="width:100%; height:100%" alt="">
                         <div class="catagory-title">
                             <a href="#">
-                                <h5>Travel</h5>
+                                <h5>event</h5>
                             </a>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                             <div class="single-post wow fadeInUp" data-wow-delay=".2s">
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="https://www.menupan.com${fvo.poster }" style="width: 100%;height:450px">
+                                    <img src="${fvo.first_image }" style="width: 100%;height:450px">
                                 </div>
                                 <!-- Post Content -->
                                 <div class="post-content">
@@ -69,22 +69,19 @@
                                         <div class="post-author-date-area d-flex">
                                             <!-- Post Author -->
                                             <div class="post-author">
-                                                <a href="#">${fvo.type }</a>
+                                                <a href="#">${fvo.addr1 }</a> <!-- 타입  -->
                                             </div>
-                                            <!-- Post Date -->
-                                            <div class="post-date">
-                                                <a href="#">${fvo.score }</a>
-                                            </div>
+                                            
                                         </div>
                                         <!-- Post Comment & Share Area -->
                                         <div class="post-comment-share-area d-flex">
                                             <!-- Post Favourite -->
                                             <div class="post-favourite">
-                                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>${fvo.likecount }</a>
+                                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>#</a> <!-- 좋아요 -->
                                             </div>
                                             <!-- Post Comments -->
                                             <div class="post-comments">
-                                                <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>${fvo.replycount }</a>
+                                                <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>#</a> <!-- 댓글 -->
                                             </div>
                                             <!-- Post Share -->
                                             <div class="post-share">
@@ -93,9 +90,9 @@
                                         </div>
                                     </div>
                                     <a href="#">
-                                        <h2 class="post-headline">${fvo.name}</h2>
+                                        <h2 class="post-headline">${fvo.title}</h2>
                                     </a>
-                                    <p>${fvo.content }</p>
+                                    <p>content_id : ${fvo.content_id }</p>
                                     <a href="#" class="read-more">Continue Reading..</a>
                                 </div>
                             </div>
@@ -108,7 +105,7 @@
                             <div class="single-post wow fadeInUp" data-wow-delay=".4s">
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="https://www.menupan.com${vo.poster }" alt="">
+                                    <img src="${vo.first_image }" alt="">
                                 </div>
                                 <!-- Post Content -->
                                 <div class="post-content">
@@ -116,22 +113,19 @@
                                         <div class="post-author-date-area d-flex">
                                             <!-- Post Author -->
                                             <div class="post-author">
-                                                <a href="#">${vo.type }</a>
+                                                <a href="#">${vo.addr1 }</a> <!-- 타입 -->
                                             </div>
-                                            <!-- Post Date -->
-                                            <div class="post-date">
-                                                <a href="#">${vo.score }</a>
-                                            </div>
+                                            
                                         </div>
                                         <!-- Post Comment & Share Area -->
                                         <div class="post-comment-share-area d-flex">
                                             <!-- Post Favourite -->
                                             <div class="post-favourite">
-                                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>${vo.likecount }</a>
+                                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>#</a> <!-- 좋아요 -->
                                             </div>
                                             <!-- Post Comments -->
                                             <div class="post-comments">
-                                                <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>${vo.replycount }</a>
+                                                <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>#</a> <!-- 댓글수 -->
                                             </div>
                                             <!-- Post Share -->
                                             <div class="post-share">
@@ -140,7 +134,7 @@
                                         </div>
                                     </div>
                                     <a href="#">
-                                        <h4 class="post-headline">${vo.name }</h4>
+                                        <h4 class="post-headline">${vo.title }</h4>
                                     </a>
                                 </div>
                             </div>
@@ -159,7 +153,7 @@
                             <div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".2s">
                                 <!-- Post Thumb -->
                                 <div class="post-thumb">
-                                    <img src="https://www.menupan.com${vo.poster }" alt="">
+                                    <img src="${vo.first_image }" alt="">
                                 </div>
                                 <!-- Post Content -->
                                 <div class="post-content">
@@ -167,22 +161,20 @@
                                         <div class="post-author-date-area d-flex">
                                             <!-- Post Author -->
                                             <div class="post-author">
-                                                <a href="#">${vo.type }</a>
+                                                <a href="#">${vo.addr1 }</a>
                                             </div>
                                             <!-- Post Date -->
-                                            <div class="post-date">
-                                                <a href="#">${vo.score }</a>
-                                            </div>
+                                            
                                         </div>
                                         <!-- Post Comment & Share Area -->
                                         <div class="post-comment-share-area d-flex">
                                             <!-- Post Favourite -->
                                             <div class="post-favourite">
-                                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> ${vo.likecount }</a>
+                                                <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>#</a>
                                             </div>
                                             <!-- Post Comments -->
                                             <div class="post-comments">
-                                                <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> ${vo.replycount }</a>
+                                                <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i>#</a>
                                             </div>
                                             <!-- Post Share -->
                                             <div class="post-share">
@@ -191,9 +183,9 @@
                                         </div>
                                     </div>
                                     <a href="#">
-                                        <h4 class="post-headline">${vo.name }</h4>
+                                        <h4 class="post-headline">${vo.title }</h4>
                                     </a>
-                                    <p>${vo.theme }</p>
+                                    <p>content_id : ${vo.content_id }</p>
                                     <a href="#" class="read-more">Continue Reading..</a>
                                 </div>
                             </div>

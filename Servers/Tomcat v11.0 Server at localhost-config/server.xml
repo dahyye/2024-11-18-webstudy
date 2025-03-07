@@ -8,7 +8,7 @@
   the License.  You may obtain a copy of the License at
 
       http://www.apache.org/licenses/LICENSE-2.0
-
+ 
   Unless required by applicable law or agreed to in writing, software
   distributed under the License is distributed on an "AS IS" BASIS,
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -150,7 +150,7 @@
       		type=""	
       	/>-->
       
-      <Context docBase="JSPMVCProject_1" path="/JSPMVCProject_1" reloadable="true" source="org.eclipse.jst.jee.server:JSPMVCProject_1"/><Context docBase="HTMLFoodProject" path="/HTMLFoodProject" reloadable="true" source="org.eclipse.jst.jee.server:HTMLFoodProject"/><Context docBase="JSPMVCLastProject" path="/JSPMVCLastProject" reloadable="true" source="org.eclipse.jst.jee.server:JSPMVCLastProject"/><Context docBase="JSPMVCFinalProject" path="/JSPMVCFinalProject" reloadable="true" source="org.eclipse.jst.jee.server:JSPMVCFinalProject"/><Context docBase="JSPMVCTestProject" path="/JSPMVCTestProject" reloadable="true" source="org.eclipse.jst.jee.server:JSPMVCTestProject"/><Context docBase="JSPFrontProject_2" path="/JSPFrontProject_2" reloadable="true" source="org.eclipse.jst.jee.server:JSPFrontProject_2"/><Context docBase="JSPMVCIncludeProject" path="/JSPMVCIncludeProject" reloadable="true" source="org.eclipse.jst.jee.server:JSPMVCIncludeProject"/><Context docBase="JSPFrontProject_3" path="/JSPFrontProject_3" reloadable="true" source="org.eclipse.jst.jee.server:JSPFrontProject_3"/><Context docBase="JSPFrontProject_4" path="/JSPFrontProject_4" reloadable="true" source="org.eclipse.jst.jee.server:JSPFrontProject_4"/><Context docBase="JSPFrontProject_5" path="/JSPFrontProject_5" reloadable="true" source="org.eclipse.jst.jee.server:JSPFrontProject_5"/><Context docBase="JSPFrontProject_6" path="/JSPFrontProject_6" reloadable="true" source="org.eclipse.jst.jee.server:JSPFrontProject_6"/><Context docBase="JSPFrontProject_7" path="/JSPFrontProject_7" reloadable="true" source="org.eclipse.jst.jee.server:JSPFrontProject_7"/><Context docBase="JSPLastProject" path="/JSPLastProject" reloadable="true" source="org.eclipse.jst.jee.server:JSPLastProject"/><Context docBase="Project_first_my" path="/Project_first_my" reloadable="true" source="org.eclipse.jst.jee.server:Project_first_my"/></Host>
+      <Context docBase="Project_first_my" path="/Project_first_my" reloadable="true" source="org.eclipse.jst.jee.server:Project_first_my"/><Context docBase="JSPLastProject" path="/JSPLastProject" reloadable="false" source="org.eclipse.jst.jee.server:JSPLastProject"/><Context docBase="ZZ_1stProject_my" path="/ZZ_1stProject_my" reloadable="false" source="org.eclipse.jst.jee.server:ZZ_1stProject_my"/></Host>
     </Engine>
   </Service>
 </Server>

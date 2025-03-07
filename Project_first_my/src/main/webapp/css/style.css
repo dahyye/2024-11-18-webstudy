@@ -211,7 +211,7 @@ ol {
     font-size: 14px;
     right: 50%;
     width: 30px;
-    background-color: #fc6c3f;
+    background-color: #1EC3F0;
     color: #fff;
     text-align: center;
     height: 30px;
@@ -285,7 +285,7 @@ li {
     -webkit-animation: 2000ms linear 0s normal none infinite running yummy-load;
     animation: 2000ms linear 0s normal none infinite running yummy-load;
     background: transparent none repeat scroll 0 0;
-    border-color: #dddddd #dddddd #fc6c3f;
+    border-color: #dddddd #dddddd #1EC3F0;
     border-radius: 50%;
     border-style: solid;
     border-width: 3px;
@@ -347,7 +347,7 @@ li {
 }
 
 .top_header_area .top_social_bar > a:hover {
-    color: #fc6c3f;
+    color: #1EC3F0;
 }
 
 .top_header_area .top_social_bar > a:last-of-type {
@@ -460,7 +460,7 @@ li {
 
 .navbar.navbar-expand-lg .navbar-nav .nav-link:hover,
 .navbar.navbar-expand-lg .navbar-nav .active .nav-link {
-    color: #fc6c3f;
+    color: #1EC3F0;
 }
 
 .dropdown-item {
@@ -472,7 +472,7 @@ li {
 
 .dropdown-item:focus,
 .dropdown-item:hover {
-    color: #fc6c3f;
+    color: #1EC3F0;
     text-decoration: none;
     background-color: #f8f9fa;
 }
@@ -500,7 +500,7 @@ li {
     bottom: -300px;
     left: 0;
     z-index: 3;
-    background: rgba(252, 108, 63, 0.7);
+    background: #1EC3F0;
     padding: 30px;
     width: 100%;
     height: auto;
@@ -602,7 +602,7 @@ li {
 }
 
 .single_catagory:hover .catagory-title {
-    background-color: #fc6c3f;
+    background-color: #1EC3F0;
 }
 
 .catagory-title a > h5 {
@@ -689,7 +689,7 @@ li {
 
 .single-post h2:hover,
 .single-post h4:hover {
-    color: #fc6c3f;
+    color: #1EC3F0;
 }
 
 .single-post p {
@@ -759,7 +759,7 @@ li {
 }
 
 .instagram_gallery_item .hover_overlay {
-    background: rgba(252, 108, 63, 0.7);
+    background: #1EC3F0;
     height: 100%;
     left: 0;
     opacity: 0;
@@ -830,7 +830,7 @@ li {
 }
 
 .single-icon > a:hover {
-    color: #fc6c3f;
+    color: #1EC3F0;
 }
 
 .single-icon > a > i {
@@ -931,7 +931,7 @@ li {
 }
 
 .subscribe-link > a:hover {
-    color: #fc6c3f;
+    color: #1EC3F0;
 }
 
 .subscribe-link {
@@ -1017,8 +1017,8 @@ li {
 .add-widget .add-text a {
     min-width: 130px;
     height: 40px;
-    border: 1px solid #fc6c3f;
-    color: #fc6c3f;
+    border: 1px solid #1EC3F0;
+    color: #1EC3F0;
     font-size: 12px;
     display: inline-block;
     text-transform: uppercase;
@@ -1027,9 +1027,9 @@ li {
 }
 
 .add-widget .add-text a:hover {
-    border: 1px solid #fc6c3f;
+    border: 1px solid #1EC3F0;
     color: #fff;
-    background-color: #fc6c3f;
+    background-color: #1EC3F0;
 }
 
 /* Newsletter Widget CSS */
@@ -1057,7 +1057,7 @@ li {
 .newsletter-form button {
     width: 40px;
     height: 40px;
-    background-color: #fc6c3f;
+    background-color: #1EC3F0;
     border: none;
     color: #fff;
     border-radius: 30px;
@@ -1139,7 +1139,7 @@ li {
 .pagination-area .pagination .page-link:focus,
 .pagination-area .pagination .page-link:hover {
     color: #fff;
-    background-color: #fc6c3f;
+    background-color: #1EC3F0;
     border-color: transparent;
 }
 
@@ -1176,13 +1176,13 @@ li {
     text-transform: uppercase;
     font-weight: 500;
     color: #fff;
-    background-color: #fc6c3f;
+    background-color: #1EC3F0;
     border-radius: 30px;
 }
 
 .contact-btn:hover {
     color: #fff;
-    background-color: #d43f10;
+    background-color: #1DBAE6;
 }
 
 .contact-form-sidebar {
@@ -1228,11 +1228,11 @@ li {
 }
 
 .single-post-share-info a.googleplus {
-    background-color: #f43535;
+    background-color: #1EC3F0;
 }
 
 .single-post-share-info a.googleplus:hover {
-    background-color: #e20707;
+    background-color: #1DBAE6;
 }
 
 .single-post-share-info a.instagram {
@@ -1253,7 +1253,7 @@ li {
 
 .yummy-blockquote {
     padding-left: 30px;
-    border-left: 2px solid #fc6c3f;
+    border-left: 2px solid #1EC3F0;
 }
 
 .yummy-blockquote h5 {
@@ -1284,7 +1284,7 @@ li {
     top: 5px;
     font-family: 'FontAwesome';
     font-size: 8px;
-    color: #fc6c3f;
+    color: #1EC3F0;
 }
 
 .tags-area {
@@ -1304,7 +1304,7 @@ li {
 
 .tags-area a:hover {
     color: #fff;
-    background-color: #fc6c3f;
+    background-color: #1EC3F0;
 }
 
 .related-post-area {
@@ -1422,7 +1422,7 @@ li {
 
 .comment-wrapper .comment-content a.active {
     color: #fff;
-    background-color: #fc6c3f;
+    background-color: #1EC3F0;
 }
 
 /* Bg Pattern */
@@ -1447,7 +1447,7 @@ li {
 
 #pattern-switcher {
 	width: 120px;
-	background-color: #fc6c3f;
+	background-color: #1AA5CC;
 	position: fixed;
 	top: 15%;
 	z-index: 9999;
@@ -1469,7 +1469,7 @@ li {
 }
 
 #pattern-switcher:hover {
-	background-color: #e3410e;
+	background-color: #1DBAE6;
 }
 
 #patter-close > i {

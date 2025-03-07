@@ -79,6 +79,15 @@ public class FoodModel {
 	  return "../main/main.jsp";
   }
   
+  @RequestMapping("food/food_find.do") //if문이 포함! -> if문 대신에 사용한다
+  public String food_find(HttpServletRequest request, HttpServletResponse response)
+  {
+	  System.out.println("food_find");
+	  request.setAttribute("main_jsp", "../food/food_find.jsp");
+	  return "../main/main.jsp";
+   }
+  
+  
 }
 
 

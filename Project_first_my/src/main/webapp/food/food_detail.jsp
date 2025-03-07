@@ -20,7 +20,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
     <div class="breadcumb-nav">
         <div class="container">
             <div class="row">

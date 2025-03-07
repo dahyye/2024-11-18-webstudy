@@ -10,7 +10,7 @@
 <body>
 <!-- ****** Top Header Area Start ****** -->
     <div class="top_header_area">
-        <div class="container">
+        <div class="container"> 
             <div class="row">
                 <div class="col-5 col-sm-6">
                     <!--  Top Social bar start -->
@@ -57,7 +57,7 @@
                 <!-- Logo Area Start -->
                 <div class="col-12">
                     <div class="logo_area text-center">
-                        <a href="../main/main.do" class="yummy-logo">Recipe & Food & Travel</a>
+                        <a href="../main/main.do" class="yummy-logo">Festeller</a>
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@
             <div class="row">
                 <div class="col-12">
                     <nav class="navbar navbar-expand-lg">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#yummyfood-nav" aria-controls="yummyfood-nav" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars" aria-hidden="true"></i> Menu</button>
+                        <button class="navbar-toggler" type="button" style="background-color: #1DBAE6" data-toggle="collapse" data-target="#yummyfood-nav" aria-controls="yummyfood-nav" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars" aria-hidden="true"></i> Menu</button>
                         <!-- Menu Area Start -->
                         <div class="collapse navbar-collapse justify-content-center" id="yummyfood-nav">
                             <ul class="navbar-nav" id="yummy-nav">
@@ -91,44 +91,43 @@
                                     </c:if>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">맛집</a>
+                                    <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">축제</a>
                                    <div class="dropdown-menu" aria-labelledby="yummyDropdown">
-                                        <a class="dropdown-item" href="../food/food_list.do">맛집목록</a>
-                                        <a class="dropdown-item" href="../food/food_find.do">맛집검색</a>
-                                        <a class="dropdown-item" href="../reserve/reserve_main.do">맛집예약</a>
+                                        <a class="dropdown-item" href="../fes/fes_list.do">축제목록</a>
+                                        <a class="dropdown-item" href="../food/food_find.do">축제검색</a>
+                                        <a class="dropdown-item" href="../reserve/reserve_main.do">축제예약</a>
                            
                                    </div>
                                  
                           
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">레시피</a>
+                                    <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">행사</a>
                                    <div class="dropdown-menu" aria-labelledby="yummyDropdown">
-                                        <a class="dropdown-item" href="index.html">레시피목록</a>
-                                        <a class="dropdown-item" href="archive.html">레시피검색</a>
-                                        <a class="dropdown-item" href="single.html">쉐프</a>
-                                        <a class="dropdown-item" href="single.html">레시피등록</a>
+                                        <a class="dropdown-item" href="index.html">행사목록</a>
+                                        <a class="dropdown-item" href="archive.html">행사검색</a>
+                                        <a class="dropdown-item" href="single.html">행사예약</a>
                                    </div>
                                  
                           
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">서울여행</a>
+                                    <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">숙박</a>
                                    <div class="dropdown-menu" aria-labelledby="yummyDropdown">
-                                        <a class="dropdown-item" href="../seoul/seoul_list.do?mode=1">명소</a>
-                                        <a class="dropdown-item" href="../seoul/seoul_list.do?mode=2">자연 & 관광</a>
+                                        <a class="dropdown-item" href="../seoul/seoul_list.do?mode=1">숙박</a>
+                                      <!--   <a class="dropdown-item" href="../seoul/seoul_list.do?mode=2">자연 & 관광</a>
                                         <a class="dropdown-item" href="../seoul/seoul_list.do?mode=3">쇼핑</a>
                                         <a class="dropdown-item" href="../seoul/seoul_list.do?mode=4">음식</a>
                                         <a class="dropdown-item" href="single.html">날씨</a>
-                                        <a class="dropdown-item" href="single.html">여행코스</a>
+                                        <a class="dropdown-item" href="single.html">여행코스</a> -->
                                    </div>
                                  
                           
                                 </li>
                                 
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a class="nav-link" href="#">스토어</a>
-                                </li>
+                                </li> -->
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">커뮤니티</a>
                                    <div class="dropdown-menu" aria-labelledby="yummyDropdown">
