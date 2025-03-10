@@ -149,6 +149,65 @@ public class FesDAO {
 		return vo;
 	}
 	
+	/*
+	<select id="fesInfoData" resultType="FesVO" parameterType="int">
+	  SELECT * 
+	  FROM event_detail
+	  WHERE content_id=#{content_id}
+	</select>
+	
+	<select id="fesPosterData" resultType="FesVO" parameterType="int">
+	  SELECT * 
+	  FROM detail_image
+	  WHERE content_id=#{content_id}
+	</select> 	
+	
+	*/
+	public static List<FesVO> fesInfoData(int content_id)
+	{
+		List<FesVO> ilist=null;
+		SqlSession session=null;
+		try
+		{
+		  session=ssf.openSession();
+		  ilist=session.selectList("fesInfoData",content_id);
+		}
+		catch (Exception e) 
+		{
+			// TODO: handle exception
+		  e.printStackTrace();
+		}
+		finally
+		{
+		  if(session!=null)
+			  session.close();
+		}
+		return ilist;
+	}
+	
+	public static List<FesVO> fesPosterData(int content_id)
+	{
+		List<FesVO> plist=null;
+		SqlSession session=null;
+		try
+		{
+		  session=ssf.openSession();
+		  plist=session.selectList("fesPosterData",content_id);
+		  
+		}
+		catch (Exception e) 
+		{
+			// TODO: handle exception
+		  e.printStackTrace();
+		}
+		finally
+		{
+		  if(session!=null)
+			  session.close();
+		}
+		return plist;
+	}
+	
 
 
 }

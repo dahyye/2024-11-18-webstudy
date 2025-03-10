@@ -22,7 +22,6 @@ function login(){
 		title:'로그인'
 	})
 }
-
 </script>
 </head>
 <body>
@@ -56,7 +55,7 @@ function login(){
                            <c:if test="${sessionScope.id!=null }">
                             <div class="login">
                                 ${sessionScope.name}(${sessionScope.admin=='y'?"관리자":"일반사용자" })님 로그인되었습니다&nbsp;&nbsp;
-                                <a href="register.html">로그아웃</a>
+                                <a href="../member/logout.do">로그아웃</a>
                             </div>
                            </c:if>
                         </div>
@@ -122,20 +121,22 @@ function login(){
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">레시피</a>
                                    <div class="dropdown-menu" aria-labelledby="yummyDropdown">
-                                   		<%--
-                                   			recipe_list.do 를 요청하면 -> DispatcherServlet을 호출하는 것
-                                   										(호출명령 : *.do)
-                                   										=> Model중에 @RequestMapping을 찾는다
-                                   														|
-                                   											requestMapping 밑에 있는 메소드 호출
-                                   											----------------------------------
-                                   														|
-                                   											request.addAttribute()
-                                   											(request를 받아서 return에 있는 jsp로 전송
-                                   											==> Controller의 역할
-                                   												
-                                   		
-                                   		 --%>
+                                        <%--
+                                             recipe_list.do      호출 명령 
+                                                                  *.do => /*
+                                             recipe_find.do  => DispatcherServlet (Controller)
+                                                                      |
+                                                                   Model중에 @RequestMapping을 찾는다
+                                                                              |밑에 있는 메소드 호출 
+                                                                               ================
+                                                                                request.addAttribute()
+                                                                                   | request를 받아서 
+                                                                                   | return에 있는 JSP로 전송 
+                                             스프링 
+                                               => @RequestMapping을 찾아주는 역할 : HandlerMapping
+                                               => JSP를 찾아서 request를 전송하는 역할 : ViewResolver
+                                                                              
+                                         --%>
                                         <a class="dropdown-item" href="../recipe/recipe_list.do">레시피목록</a>
                                         <a class="dropdown-item" href="../recipe/recipe_find.do">레시피검색</a>
                                         <a class="dropdown-item" href="../recipe/chef_list.do">쉐프</a>
@@ -151,7 +152,7 @@ function login(){
                                         <a class="dropdown-item" href="../seoul/seoul_list.do?mode=2">자연 & 관광</a>
                                         <a class="dropdown-item" href="../seoul/seoul_list.do?mode=3">쇼핑</a>
                                         <a class="dropdown-item" href="../seoul/seoul_list.do?mode=4">음식</a>
-                                        <a class="dropdown-item" href="single.html">날씨</a>
+                                        <a class="dropdown-item" href="../seoul/weather.do">날씨</a>
                                         <a class="dropdown-item" href="single.html">여행코스</a>
                                    </div>
                                  
@@ -179,12 +180,12 @@ function login(){
                                 <c:if test="${sessionScope.id!=null }">
                                  <c:if test="${sessionScope.admin=='n' }">
                                   <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">마이페이지</a>
+                                    <a class="nav-link" href="../mypage/my_main.do">마이페이지</a>
                                   </li>
                                  </c:if>
                                  <c:if test="${sessionScope.admin=='y' }">
                                   <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">관리자페이지</a>
+                                    <a class="nav-link" href="../adminpage/admin_main.do">관리자페이지</a>
                                   </li>
                                  </c:if>
                                 </c:if>

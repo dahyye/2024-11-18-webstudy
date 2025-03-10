@@ -41,31 +41,40 @@ public class MemberDAO {
 	 */
 	public static void memberInsert(MemberVO vo)
 	{
+		System.out.println("Insert진입");
 		SqlSession session=ssf.openSession(true);
 		session.insert("memberInsert",vo);
+		System.out.println("Insert완료");
 		session.close();
 	}
 	
 	public static MemberVO memberLogin(String id,String pwd)
 	{
+		
 		MemberVO vo = new MemberVO();
 		SqlSession session=ssf.openSession();
 		int count=session.selectOne("memberIdCheckCount",id);
+		
 		if(count==0)
 		{
 			//아이디가 없는 상태
 			vo.setMsg("NOID");
+			//System.out.println(vo.getMsg());
 		}
 		else
 		{
+			
 			vo=session.selectOne("memberGetPassword",id);
+			
 			if(pwd.equals(vo.getPwd()))
 			{
-				vo.setMsg("Ok");
+				vo.setMsg("OK");
+				System.out.println(vo.getMsg());
 			}
 			else
 			{
-				vo.setMsg("Ok");
+				vo.setMsg("NOPWD");
+				System.out.println(vo.getMsg());
 			}
 		}
 		session.close();

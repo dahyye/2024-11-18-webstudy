@@ -5,19 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../css/bootsrtap/bootstrap.min.css">
+<link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 $(function(){
-	$('#checkBtn').click(functionc(){
-		let id=$('#id').val() //입력창 가져올 때
+	$('#checkBtn').click(function(){
+		let id=$('#id').val()
 		if(id.trim()==="")
 		{
 			$('#id').focus()
 			return
 		}
 		$.ajax({
-			type='post',//보안이 필요하니까 post
+			type:'post',
 			url:'../member/idcheck_ok.do',
 			data:{"id":id.trim()},
 			success:function(result)

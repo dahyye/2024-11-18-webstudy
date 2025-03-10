@@ -10,7 +10,7 @@
 </head>
 <body>
 <!-- ****** Breadcumb Area Start ****** -->
-    <div class="breadcumb-area" style="background-image: url(../img/bg-img/breadcumb.jpg);">
+    <div class="breadcumb-area" style="background-image: url(../img/catagory-img/festival.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -29,7 +29,7 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
                             <li class="breadcrumb-item"><a href="#">Archive</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Single Post Blog</li>
+                            <li class="breadcrumb-item active" aria-current="page">축제 상세보기</li>
                         </ol>
                     </nav>
                 </div>
@@ -54,12 +54,23 @@
                                 <div class="related-post-slider owl-carousel">
                                     <!-- Single Related Post-->
                                     
+                                    <c:forEach var="pvo" items="${pList }">
 	                                    <div class="single-post">
+	                                        <!-- Post Thumb -->
+	                                        <div class="post-thumb">
+	                                            <img src="${pvo.origin_img }" alt="">
+	                                            
+	                                        </div>
+	                                    </div>
+                                    </c:forEach>
+                                    
+	                                    <%-- <div class="single-post">
 	                                        <!-- Post Thumb -->
 	                                        <div class="post-thumb">
 	                                            <img src="${vo.first_image2 }" alt="">
 	                                        </div>
-	                                    </div>
+	                                    </div> --%>
+	                                    
                                  
                                 </div>
                             </div>
@@ -103,8 +114,15 @@
       </table>
       <table class="table">
         <tr>
-         <td>${vo.infotext }</td>
+        <th width=20%>행사소개</th>
+         <td>${vo.infotext1 }</td>
         </tr>
+         <tr>
+         <th width=20%>행사내용</th>
+         <td>${vo.infotext2 }</td>
+        </tr>
+       </table>
+       <table class="table">
         <tr>
          <td class="text-right">
           <a href="#" 
@@ -121,7 +139,7 @@
       
       <%-- 지도 위치 --%>
       <!-- 카카오 API 사용 -->
-       <%-- <div class="map_wrap">
+      <div class="map_wrap">
 			    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
 			
 			    <div id="menu_wrap" class="bg_white">
@@ -357,7 +375,7 @@
 			        el.removeChild (el.lastChild);
 			    }
 			}
-			</script>   --%>
+			</script>
                             
 
                             <!-- Comment Area Start -->

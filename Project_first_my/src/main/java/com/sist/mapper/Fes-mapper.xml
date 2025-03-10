@@ -36,6 +36,7 @@ SELECT * FROM (SELECT * FROM content
 
 <!--  축제 상세보기 -->
 <select id="fesDetailData" resultType="FesVO" parameterType="int">
+  <!-- 
   SELECT * 
   FROM content,event,event_detail,detail_image
   WHERE content.content_id=event.content_id 
@@ -44,7 +45,23 @@ SELECT * FROM (SELECT * FROM content
   	AND content.cat2='A0207'
 	AND content.content_id=#{content_id}
 	AND infoname='행사소개'
+    -->
+  SELECT *
+  FROM content,event
+  WHERE content.content_id=event.content_id 
+  	AND content.cat2='A0207'
+	AND content.content_id=#{content_id}
+</select>
+<select id="fesInfoData" resultType="FesVO" parameterType="int">
+  SELECT * 
+  FROM event_detail
+  WHERE content_id=#{content_id}
+</select>
 
+<select id="fesPosterData" resultType="FesVO" parameterType="int">
+  SELECT * 
+  FROM detail_image
+  WHERE content_id=#{content_id}
 </select>
 <!-- 축제 히트증가부분 추가예정 -->
 <update id="" parameterType="int">
