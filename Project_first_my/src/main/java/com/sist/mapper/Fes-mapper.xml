@@ -43,6 +43,7 @@ SELECT * FROM (SELECT * FROM content
   	AND content.content_id=detail_image.content_id
   	AND content.cat2='A0207'
 	AND content.content_id=#{content_id}
+	AND infoname='행사소개'
 
 </select>
 <!-- 축제 히트증가부분 추가예정 -->

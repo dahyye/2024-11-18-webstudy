@@ -56,13 +56,14 @@ public class FesModel {
 			
 	}
 	
-	@RequestMapping("fes/fes_datail.do")
+	@RequestMapping("fes/fes_detail.do")
 	public String fes_detail(HttpServletRequest request, HttpServletResponse response)
 	{
-		System.out.println("fes_datail");
+		System.out.println("fes_detail.do");
 		String content_id=request.getParameter("content_id");
 		FesVO vo = FesDAO.fesDetailData(Integer.parseInt(content_id));
-		String addr1=vo.getAddr1();
+		//System.out.println(vo.getTitle());
+		String addr1="주소값 널값오류";
 		
 		request.setAttribute("addr", addr1);
 		request.setAttribute("vo", vo);
@@ -70,4 +71,6 @@ public class FesModel {
 		
 		return "../main/main.jsp";
 	}
+	
+	
 }

@@ -134,7 +134,7 @@ public class FesDAO {
 		try
 		{
 		  session=ssf.openSession();
-		  vo=session.selectOne("fesListData",content_id);
+		  vo=session.selectOne("fesDetailData",content_id);
 		}
 		catch (Exception e) 
 		{

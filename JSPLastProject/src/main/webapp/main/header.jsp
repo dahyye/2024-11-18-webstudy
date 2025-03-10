@@ -6,6 +6,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../shadow/css/shadowbox.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript" src="../shadow/js/shadowbox.js"></script>
+<script type="text/javascript">
+Shadowbox.init({
+	players:['iframe']
+})
+function login(){
+	Shadowbox.open({
+		content:'../member/login.do',
+		player:'iframe',
+		width:320,
+		height:250,
+		title:'로그인'
+	})
+}
+
+</script>
 </head>
 <body>
 <!-- ****** Top Header Area Start ****** -->
@@ -28,10 +46,10 @@
                         <div class="login_register_area d-flex">
                            <c:if test="${sessionScope.id==null }">
                             <div class="login">
-                                <a href="register.html">로그인</a>
+                                <a href="javascript:login()">로그인</a>
                             </div>
                             <div class="register">
-                                <a href="register.html">회원가입</a>
+                                <a href="../member/join.do">회원가입</a>
                             </div>
                            </c:if>
                            
@@ -76,7 +94,7 @@
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">회원</a>
                                     <c:if test="${sessionScope.id==null }">
                                      <div class="dropdown-menu" aria-labelledby="yummyDropdown">
-                                        <a class="dropdown-item" href="index.html">회원가입</a>
+                                        <a class="dropdown-item" href="../member/join.do">회원가입</a>
                                         <a class="dropdown-item" href="archive.html">아이디찾기</a>
                                         <a class="dropdown-item" href="single.html">비밀번호찾기</a>
                            
