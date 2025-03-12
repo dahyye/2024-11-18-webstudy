@@ -29,6 +29,7 @@ public class FoodDAO {
    */
   public static FoodVO foodMainHouseData()
   {
+	  System.out.println("푸드메인하우스데이터 DAO");
 	  SqlSession session=ssf.openSession();
 	  FoodVO vo=session.selectOne("foodMainHouseData");
 	  session.close();

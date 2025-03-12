@@ -14,6 +14,7 @@ import com.sist.vo.*;
 public class MainModel {
 	@RequestMapping("main/main.do")
 	public String main_main(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("메인모델들어옴");
 		FoodVO vo = FoodDAO.foodMainHouseData();
 		List<FoodVO> fList = FoodDAO.foodMainHouseData8();
 		// chefList => recipeList => newsList => cookieList

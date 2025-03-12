@@ -46,4 +46,29 @@ MEM_CONT2          VARCHAR2(30)
  <select id="recipeChefTotalPage" resultType="int">
  SELECT CEIL(COUNT (*)/30.0) FROM chef
  </select>
+ 
+ <select id="recipeFindData" resultType="RecipeVO" parameterType="hashmap">
+   SELECT no, title, poster, chef, hit, likecount, replycount, num
+   FROM (SELECT no, title, poster, chef, hit, likecount, replycount, rownum as num 
+   FROM (SELECT /*+ INDEX_ASC(recipe recipe_no_pk)*/no, title, poster, chef, hit, likecount, replycount
+   FROM recipe
+   WHERE 
+    <trim prefix="(" suffix=")" prefixOverrides="OR">
+   	<!-- <trim prefix="WHERE (" suffix=")" prefixOverrides="OR">  --><!-- 검색데이터가 없다면 WHERE문 다음에 문장이 없기 때문에 전체가 다 들어온다 -->
+   	 <foreach collection="findArr" item="type">
+   	  <trim prefix="OR">
+   	   <choose> <!-- 조건문이 여러개일 땐 choose 하나일 땐 if -> choose는 다중조건문 -->
+   	    <when test="type=='T'.toString()"> <!-- toString으로 변환 필요 -->
+   	     title LIKE '%'||#{ss}||'%'   	    
+   	    </when>
+   	    <when test="type=='C'.toString()">
+   	     chef LIKE '%'||#{ss}||'%'   	    
+   	    </when>
+   	   </choose>
+   	  </trim>
+   	 </foreach>
+   	</trim>
+   ))
+   <!-- WHERE num BETWEEN #{start} AND #{end} -->
+ </select>
 </mapper>

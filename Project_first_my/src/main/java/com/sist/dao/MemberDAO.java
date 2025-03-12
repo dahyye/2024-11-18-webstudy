@@ -21,10 +21,10 @@ public class MemberDAO {
 	 </select>
 	
 	 */
-	public static int memberIdcheck(String id)
+	public static int memberIdcheck(String user_id)
 	{
 		SqlSession session=ssf.openSession();
-		int count=session.selectOne("memberIdcheck",id);
+		int count=session.selectOne("memberIdcheck",user_id);
 		session.close();
 		return count;
 	}
@@ -50,12 +50,12 @@ public class MemberDAO {
 		session.close();
 	}
 	
-	public static MemberVO memberLogin(String id,String pwd)
+	public static MemberVO memberLogin(String user_id,String pwd)
 	{
 		
 		MemberVO vo = new MemberVO();
 		SqlSession session=ssf.openSession();
-		int count=session.selectOne("memberIdCheckCount",id);
+		int count=session.selectOne("memberIdCheckCount",user_id);
 		
 		if(count==0)
 		{
@@ -66,7 +66,7 @@ public class MemberDAO {
 		else
 		{
 			
-			vo=session.selectOne("memberGetPassword",id);
+			vo=session.selectOne("memberGetPassword",user_id);
 			
 			if(pwd.equals(vo.getPwd()))
 			{

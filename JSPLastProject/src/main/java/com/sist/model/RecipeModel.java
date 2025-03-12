@@ -78,7 +78,37 @@ public class RecipeModel {
 		return "../main/main.jsp";
 	}
 	
+	@RequestMapping("recipe/recipe_find.do")
+	public String recipe_find(HttpServletRequest request, HttpServletResponse response)
+	{
+		String[] findArr = request.getParameterValues("fs"); /* 하나가 들어올 지 여러개가 들어올 지 모르기 때문에 배열로 */
+		if(findArr==null)
+		{
+			findArr=new String[] {"T"};
+		}
+		String ss = request.getParameter("ss"); /* 검색어 */
+		if(ss==null)
+		{
+			ss="만개";
+		}
+		Map map=new HashMap();
+		map.put("findArr", findArr);
+		map.put("ss", ss);
+		List<RecipeVO> list = RecipeDAO.recipeFindData(map);
+		request.setAttribute("list", list);		
+		//메인으로 넘어갈 때 헤더 풋터만 채워져있고 홈은 비워져있으니까 그 부분을 채워주야해
+		request.setAttribute("main_jsp",
+				"../recipe/recipe_find.jsp"); /* 인크루드되면 데이터가 공유되기 때문에 list를 메인,헤더,풋터,파인드 다 사용가능 */
+		return "../main/main.jsp";
+	}
 	
+	/*
+	 1. return "../main/main_jsp"; => 화면출력할 때 사용 (ex. 메뉴클릭시)
+	 
+	 2. return "../food/food_jsp"; => ajax 사용시 결과 가져올 때
+ 
+	 3. return "redirect:../main/main.do"; => insert나 update시 
+	 */
 	
 	
 	

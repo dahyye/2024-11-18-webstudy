@@ -150,7 +150,7 @@
       		type=""	
       	/>-->
       
-      <Context docBase="Project_first_my" path="/Project_first_my" reloadable="true" source="org.eclipse.jst.jee.server:Project_first_my"/><Context docBase="JSPLastProject" path="/JSPLastProject" reloadable="false" source="org.eclipse.jst.jee.server:JSPLastProject"/><Context docBase="ZZ_1stProject_my" path="/ZZ_1stProject_my" reloadable="false" source="org.eclipse.jst.jee.server:ZZ_1stProject_my"/><Context docBase="JSPBasicProject_3" path="/JSPBasicProject_3" reloadable="false" source="org.eclipse.jst.jee.server:JSPBasicProject_3"/></Host>
+      <Context docBase="Project_first_my" path="/Project_first_my" reloadable="true" source="org.eclipse.jst.jee.server:Project_first_my"/><Context docBase="JSPLastProject" path="/JSPLastProject" reloadable="false" source="org.eclipse.jst.jee.server:JSPLastProject"/><Context docBase="ZZ_1stProject_my" path="/ZZ_1stProject_my" reloadable="false" source="org.eclipse.jst.jee.server:ZZ_1stProject_my"/><Context docBase="JSPBasicProject_3" path="/JSPBasicProject_3" reloadable="false" source="org.eclipse.jst.jee.server:JSPBasicProject_3"/><Context docBase="HTMLBoardProject" path="/HTMLBoardProject" reloadable="false" source="org.eclipse.jst.jee.server:HTMLBoardProject"/><Context docBase="HTMLMiniProject" path="/HTMLMiniProject" reloadable="false" source="org.eclipse.jst.jee.server:HTMLMiniProject"/><Context docBase="JSPMiddleProject_4" path="/JSPMiddleProject_4" reloadable="false" source="org.eclipse.jst.jee.server:JSPMiddleProject_4"/><Context docBase="JSPMVCProject_1" path="/JSPMVCProject_1" reloadable="false" source="org.eclipse.jst.jee.server:JSPMVCProject_1"/></Host>
     </Engine>
   </Service>
 </Server>

@@ -28,7 +28,7 @@
                     <div class="single_catagory wow fadeInUp" data-wow-delay=".6s">
                         <img src="../img/catagory-img/festival.jpg" style="width:100%; height:100%" alt="">
                         <div class="catagory-title">
-                            <a href="#">
+                            <a href="../fes/fes_list.do">
                                 <h5>festival</h5>
                             </a>
                         </div>

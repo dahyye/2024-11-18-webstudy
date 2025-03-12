@@ -35,7 +35,7 @@ $(function(){
 	})
 		
 	$('#joinBtn').click(function(){
-		let id=$('#id').val()
+		let id=$('#user_id').val()
 		if(id.trim()==="")
 		{
 			alert("ID 중복체크를 해야 됩니다")
@@ -121,7 +121,7 @@ $(function(){
               <tr>
                <th width=15% class="text-center" style="color:gray">ID</th>
                <td width=85%>
-                <input type=text name="id" id="id" size=15 class="form-control-sm" readonly>
+                <input type=text name="user_id" id="user_id" size=15 class="form-control-sm" readonly>
                 <input type=button id="idBtn" value="아이디중복체크"
                    class="btn-sm btn-primary">
                </td>
@@ -142,6 +142,23 @@ $(function(){
                 <input type=text name="name" id="name" size=15 class="form-control-sm">
                </td>
               </tr>
+              
+              <tr>
+               <th width=15% class="text-center" style="color:gray">닉네임</th>
+               <td width=85%>
+                <input type=text name="nickname" id="nickname" size=15 class="form-control-sm">
+               </td>
+              </tr>
+              
+              <tr>
+               <th width=15% class="text-center" style="color:gray">프로필</th>
+               <!-- 파일을 첨부하게 해서 만들지
+               아니면 캐릭터사진 여러개 넣어두고 선택하게 할 지 -->
+               <td width=85%>
+                <input type=text name="nickname" id="nickname" size=15 class="form-control-sm">
+               </td>
+              </tr>
+
               
               <tr>
                <th width=15% class="text-center" style="color:gray">성별</th>
@@ -194,13 +211,6 @@ $(function(){
                   <option>010</option>
                 </select>
                 <input type=text name="phone2" size=15 class="form-control-sm">
-               </td>
-              </tr>
-              
-              <tr>
-               <th width=15% class="text-center" style="color:gray">소개</th>
-               <td width=85%>
-                <textarea rows="7" cols="57" name="content"></textarea>
                </td>
               </tr>
               

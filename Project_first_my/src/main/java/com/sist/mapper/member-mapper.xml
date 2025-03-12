@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.member-mapper">
+<select id="memberIdcheck" resultType="int" parameterType="string">
+    SELECT COUNT(*) FROM user_info
+    WHERE user_id=#{user_id}
+  </select>
+  <!-- 
+        ID       NOT NULL VARCHAR2(20)  
+		PWD      NOT NULL VARCHAR2(10)  
+		NAME     NOT NULL VARCHAR2(51)   
+		SEX               VARCHAR2(20)  
+		BIRTHDAY NOT NULL VARCHAR2(30)  
+		EMAIL             VARCHAR2(100) 
+		POST     NOT NULL VARCHAR2(20)  
+		ADDR1    NOT NULL VARCHAR2(200) 
+		ADDR2             VARCHAR2(200) 
+		PHONE             VARCHAR2(20)  
+		CONTENT           CLOB          
+		ADMIN             CHAR(1)
+		
+	프로젝트 테이블
+	
+	USER_ID     NOT NULL VARCHAR2(50)  
+	PWD         NOT NULL VARCHAR2(50)  
+	NAME        NOT NULL VARCHAR2(50)  
+	NICKNAME    NOT NULL VARCHAR2(50)  
+	PROFILE_IMG          VARCHAR2(300) 
+	SEX         NOT NULL VARCHAR2(10)  
+	BIRTHDAY    NOT NULL DATE          
+	EMAIL       NOT NULL VARCHAR2(100) 
+	POST        NOT NULL VARCHAR2(7)   
+	ADDR1       NOT NULL VARCHAR2(100) 
+	ADDR2                VARCHAR2(100) 
+	PHONE       NOT NULL VARCHAR2(14)  
+	ADMIN                CHAR(1)       
+			
+		
+   -->
+   <insert id="memberInsert" parameterType="MemberVO">
+    INSERT INTO user_info VALUES(
+      #{user_id},#{pwd},#{name},#{nickname},#{profile_img},#{sex},#{birthday},
+      #{email},#{post},#{addr1},#{addr2},
+      #{phone},'n'
+    ) 
+  </insert>
+ 
+ <!-- 로그인  -->
+ <select id="memberIdCheckCount" resultType="int" parameterType="string">
+  SELECT COUNT(*)
+  FROM user_info
+  WHERE user_id=#{user_id}
+ </select>
+ <select id="memberGetPassword" resultType="MemberVO" parameterType="string">
+  SELECT user_id,pwd,name,sex,admin
+  FROM user_info
+  WHERE user_id=#{user_id}
+ </select>
+</mapper>

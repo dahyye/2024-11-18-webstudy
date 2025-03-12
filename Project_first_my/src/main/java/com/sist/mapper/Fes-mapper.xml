@@ -64,7 +64,10 @@ SELECT * FROM (SELECT * FROM content
   WHERE content_id=#{content_id}
 </select>
 <!-- 축제 히트증가부분 추가예정 -->
-<update id="" parameterType="int">
+
   
-  </update>
+  
+<!-- 축제 검색하기 -->
+
+  
 </mapper> 
