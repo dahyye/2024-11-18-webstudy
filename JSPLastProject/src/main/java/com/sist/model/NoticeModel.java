@@ -122,5 +122,49 @@ public class NoticeModel {
 		request.setAttribute("main_jsp", "../notice/notice_user_detail.jsp");
 		return "../main/main.jsp";
 	}
+	
+	@RequestMapping("admin/notice_update.do")
+	public String notice_update(HttpServletRequest request, HttpServletResponse response)
+	{	
+		String no=request.getParameter("no");
+		//NoticeVO vo = NoticeDAO.noticeUpdate(Integer.parseInt(no));
+		
+		request.setAttribute("admin_jsp", "../notice/notice_update.jsp");
+		request.setAttribute("main_jsp", "../adminpage/admin_main.jsp");
+		return "../main/main.jsp";
+	}
+	
+	@RequestMapping("admin/notice_update_ok.do")
+	public String notice_update_ok(HttpServletRequest request, HttpServletResponse response)
+	{	
+		String type=request.getParameter("type");
+		String subject=request.getParameter("subject");
+		String content=request.getParameter("content");
+		String no=request.getParameter("no");
+		
+		NoticeVO vo = new NoticeVO();
+		vo.setType(Integer.parseInt(type));
+		vo.setSubject(subject);
+		vo.setContent(content);
+		vo.setNo(Integer.parseInt(no));
+		NoticeDAO.noticeUpdate(vo);
+		
+		request.setAttribute("admin_jsp", "../notice/notice_update.jsp");
+		request.setAttribute("main_jsp", "../adminpage/admin_main.jsp");
+		return "redireac:../admin/notice_detail.do?no="+no; 
+		//여기서는 바로 redireac할 수 있지만
+		//비밀번호 확인해야할 때는 2개를 동시에 보낼 수 없어서 jsp로 처리
+	}
+	@RequestMapping("admin/notice_delete.do")
+	public String notice_delete(HttpServletRequest request, HttpServletResponse response)
+	{
+		String[] nos=request.getParameterValues("dbox");
+		for(String no:nos)
+		{
+			NoticeDAO.noticeDelete(Integer.parseInt(no));
+		}
+		//목록으로 돌아간다		
+		return "redireac:../admin/notice_list.do?";
+	}
 		
 }

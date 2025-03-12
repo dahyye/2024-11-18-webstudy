@@ -34,7 +34,7 @@
               <tr>
                <td colspan="4" class="text-right">
                
-                <a href="../board/board_update.do?no=${vo.no }&page=${page}" class="btn btn-outline-info btn-xs">수정</a>
+                <a href="../admin/notice_update.do?no=${vo.no }&page=${page}" class="btn btn-outline-info btn-xs">수정</a>
                 <!-- <a href="javascript:history.back()" class="btn btn-warning btn-xs">목록</a>  이렇게 주소값을 주면 조회수 증가된 값이 새로고침되지 않아-->
                 <a href="../admin/notice_list.do?" class="btn btn-warning btn-xs">목록</a>
                </td>

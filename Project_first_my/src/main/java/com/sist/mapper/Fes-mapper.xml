@@ -60,7 +60,7 @@ SELECT * FROM (SELECT * FROM content
 
 <select id="fesPosterData" resultType="FesVO" parameterType="int">
   SELECT * 
-  FROM detail_image
+  FROM detail_imag                                   
   WHERE content_id=#{content_id}
 </select>
 <!-- 축제 히트증가부분 추가예정 -->
@@ -68,6 +68,35 @@ SELECT * FROM (SELECT * FROM content
   
   
 <!-- 축제 검색하기 -->
+<select id="fesFindData" resultType="FesVO" parameterType="hashmap">
+SELECT content_id, title, addr1, addr2, zipcode, sigungucode, areacode, first_image, review_count, event_startdate, event_enddate, charge, agelimit, price, price_info, num
+FROM (SELECT content_id, title, addr1, addr2, zipcode, sigungucode, areacode, first_image, review_count, event_startdate, event_enddate, charge, agelimit, price, price_info, rownum as num
+FROM (SELECT content_id, title, addr1, addr2, zipcode, sigungucode, areacode, first_image, review_count, event_startdate, event_enddate, charge, agelimit, price, price_info
+FROM content, event
+WHERE content.content_id=event.content_id AND content.cat2='A0207'
+<trim prefix="(" suffix=")" prefixOverrides="OR">
+   	<!-- <trim prefix="WHERE (" suffix=")" prefixOverrides="OR">  --><!-- 검색데이터가 없다면 WHERE문 다음에 문장이 없기 때문에 전체가 다 들어온다 -->
+   	 <foreach collection="findArr" item="type">
+   	  <trim prefix="OR">
+   	   <choose> <!-- 조건문이 여러개일 땐 choose 하나일 땐 if -> choose는 다중조건문 -->
+   	    <when test="type=='T'.toString()"> <!-- toString으로 변환 필요 -->
+   	     title LIKE '%'||#{ss}||'%'   	    
+   	    </when>
+   	    <when test="type=='C'.toString()">
+   	     chef LIKE '%'||#{ss}||'%'   	    
+   	    </when>
+   	   </choose>
+   	  </trim>
+   	 </foreach>
+   	</trim>
+))
 
+</select>
+
+ <!-- <select id="foodFindTotalPage" resultType="int" parameterType="hashmap">
+  SELECT CEIL(COUNT(*)/12.0)
+  FROM project_food
+  WHERE ${fd} LIKE '%'||#{ss}||'%'
+ </select> -->
   
 </mapper> 
