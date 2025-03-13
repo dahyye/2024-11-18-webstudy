@@ -170,7 +170,7 @@ function login(){
                                    <div class="dropdown-menu" aria-labelledby="yummyDropdown">
                                         <a class="dropdown-item" href="../board/board_list.do">자유게시판</a>
                                         <a class="dropdown-item" href="../notice/notice_user_list.do">공지사항</a>
-                                        <a class="dropdown-item" href="archive.html">묻고답하기</a>
+                                        <a class="dropdown-item" href="../qna/qna_list.do">묻고답하기</a>
                                         <c:if test="${sessionScope.id!=null }">
                                         <a class="dropdown-item" href="single.html">실시간채팅</a>
                                         </c:if>

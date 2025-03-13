@@ -18,6 +18,7 @@
      <typeAlias type="com.sist.vo.FesVO" alias="FesVO"/>
      <typeAlias type="com.sist.vo.MemberVO" alias="MemberVO"/>
      <typeAlias type="com.sist.vo.BoardVO" alias="BoardVO"/>
+     <typeAlias type="com.sist.vo.QnaVO" alias="QnaVO"/>
    </typeAliases>
    <environments default="development">
      <environment id="development">
@@ -52,6 +53,7 @@
      <mapper resource="com/sist/mapper/Fes-mapper.xml"/>
      <mapper resource="com/sist/mapper/member-mapper.xml"/>
      <mapper resource="com/sist/mapper/board-mapper.xml"/>
+     <mapper resource="com/sist/mapper/qna-mapper.xml"/>
    </mappers>
    <!-- 
           동적 쿼리 

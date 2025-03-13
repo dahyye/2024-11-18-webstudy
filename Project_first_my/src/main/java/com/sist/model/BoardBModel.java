@@ -20,7 +20,6 @@ public class BoardBModel {
 	@RequestMapping("board/board_list.do")
 	public String board_list(HttpServletRequest request, HttpServletResponse response)
 	{
-		System.out.println("board/board_list.do");
 		String page=request.getParameter("page");
 		System.out.println(page);
 		if(page==null)
