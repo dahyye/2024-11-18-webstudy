@@ -174,6 +174,21 @@ public class QnABoardModel {
 		return "redirect:../qna/qna_admin_list.do";
 	}
 	
+	@RequestMapping("qna/qna_update_ok.do")
+	public void qna_update_ok(HttpServletRequest request, HttpServletResponse response)
+	{
+		String subject=request.getParameter("subject");
+		String content=request.getParameter("content");
+		String no=request.getParameter("no");
+		
+		QnABoardVO vo = new QnABoardVO();
+		vo.setSubject(subject);
+		vo.setContent(content);
+		vo.setNo(Integer.parseInt(no));
+		
+		QnABoardDAO.qnaUpdate(vo);
+	}
+	
 	
 }
 

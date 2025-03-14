@@ -85,6 +85,22 @@ public class QnABoardDAO {
 		session.close();
 		return vo;
 	}
+	/*
+	<update id="qnaUpdate" parameterType="QnABoardVO">
+	 UPDATE qnaBoard SET
+	 subject=#{subject}, content=#{content}
+	 WHERE no=#{no}
+	</update>
+	
+	*/
+	public static void qnaUpdate(QnABoardVO vo)
+	{
+		//session.insert(update,delete) 어떤걸 넣어도 같은 결과를 나타내지만
+		//가독성이 좋으려면 맞춰서 적어주는게 좋아
+		SqlSession session = ssf.openSession(true);
+		session.update("qnaUpdate",vo);
+		session.close();
+	}
 	
 	public static List<QnABoardVO> qnaAdminListData(Map map)
 	{
@@ -186,6 +202,18 @@ public class QnABoardDAO {
 		}
 	}
 	
+	// => 회원 수정도 비슷한 방식 ( 수정하면 안되는 부분 id는 비활성화 필수), pwd는 바꾸는 부분을 따로 해줘야해
+	// 비밀번호는 보통 6개월 후에 바꾸라고 하는데 6개월 후를 계산하는 건 오라클의 addMonth()를 활용하면 쉽다
+	public static QnABoardVO qnaUpdateData(int no)
+	{
+		SqlSession session = ssf.openSession();
+		QnABoardVO vo = session.selectOne("qnaDetailData",no);
+		session.close();
+		
+		
+		return vo;
+				
+	}
 	
 }
 

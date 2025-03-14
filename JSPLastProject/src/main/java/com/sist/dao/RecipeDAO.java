@@ -209,11 +209,61 @@ public class RecipeDAO {
 		  return list;
 	  }
 	  
+	  /*
 	  
+	    <update id="recipeHitIncrement" parameterType="int">
+	   UPDATE recipe SET
+	   hit=hit+1
+	   WHERE no=#{no}
+	  </update>
+	  <select id="recipeDetailData" resultType="com.sist.vo.RecipeDeatailVO" parameterType="int"> config에 등록이 안되어있으면 이런식으로 사용해야해
+	   SELECT * FROM recipedetail
+	   WHERE no=#{no}
+	  </select>
 	  
+	   */
 	  
+	  public static RecipeDetailVO recipeDetailData(int no)
+	  {
+		  SqlSession session=ssf.openSession();
+		  session.update("recipeHitIncrement",no);
+		  session.commit();
+		  RecipeDetailVO vo = session.selectOne("recipeDetailData",no);
+		  session.close();
+		  return vo;		  
+	  }
 	  
+	  /*
+	   
+	   <select id="recipeChefMakeData" resultType="RecipeVO" parameterType="hashmap">
+	  SELECT no,title, poster, chef, hit, likecount, replycount, num
+	  FROM (SELECT no,title, poster, chef, hit, likecount, replycount, rownum as num
+	  FROM (SELECT + INDEX_ASC(recipe recipe_no_pk)no,title, poster, chef, hit, likecount, replycount  <!-- 인라인뷰 -->
+	  FROM recipe WHERE chef=(SELECT chef FROM chef WHERE no=#{no}))) <!-- 서브쿼리 -->
+	  WHERE num BETWEEN #{start} AND #{end}
+	 </select>
+	 <select id="recipeChefMakeDataTotalpage" resultType="int" parameterType="int">
+	  SELECT CEIL(COUNT(*)/12.0) FROM recipe
+	  WHERE chef=(SELECT chef FROM chef WHERE no=#{no})
+	 </select>
+	    
+	   */
 	  
+	  public static List<RecipeVO> recipeChefMakeData(Map map)
+	  {
+		  SqlSession session=ssf.openSession();
+		  List<RecipeVO> list = session.selectList("recipeChefMakeData", map);
+		  session.close();
+		  return list;
+	  }
+	  
+	  public static int recipeChefMakeDataTotalpage(int no)
+	  {
+		  SqlSession session=ssf.openSession();
+		  int total = session.selectOne("recipeChefMakeDataTotalpage",no);
+		  session.close();
+		  return total;
+	  }
 	  
 	  
 	  

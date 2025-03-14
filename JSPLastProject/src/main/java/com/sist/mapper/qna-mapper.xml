@@ -57,6 +57,11 @@
  anok='n'
  WHERE group_id=#{group_id}
 </update>
+<update id="qnaUpdate" parameterType="QnABoardVO">
+ UPDATE qnaBoard SET
+ subject=#{subject}, content=#{content}
+ WHERE no=#{no}
+</update>
 <!-- 관리자 -->
 <select id="qnaAdminListData" resultType="QnABoardVO" parameterType="hashmap">
  SELECT no,subject,name,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,hit,group_tab,group_id,group_step,anok,num
